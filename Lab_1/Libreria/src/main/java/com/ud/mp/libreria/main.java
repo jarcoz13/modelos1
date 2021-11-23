@@ -3,13 +3,13 @@ package com.ud.mp.libreria;
 import java.util.Scanner;
 
 public class main {
-
+    static Scanner sc;
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         boolean seguimos;
-        Scanner sc = new Scanner(System.in);
+        sc = new Scanner(System.in);
         do {            
             System.out.println("Bienvenido a nuestra biblioteca");
             System.out.println("1\tListar inventario");
@@ -27,6 +27,7 @@ public class main {
                     break;
                 case 2:
                     System.out.println("Ingrese los datos del libro");
+                    agregarLibro();
                     break;
                 case 3:
                     System.out.println("Ingrese el titulo del libro a retirar");
@@ -45,6 +46,12 @@ public class main {
             
             seguimos = true;
         } while (seguimos);
+        sc.close();
     }
+    private static void agregarLibro(){
+        int id = Integer.parseInt(sc.nextLine());
+        // = Integer.parseInt(sc.nextLine());
+        //int id = Integer.parseInt(sc.nextLine());
         
+    }
 }

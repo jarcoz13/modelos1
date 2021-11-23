@@ -4,7 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Library {
+    private List<elementoBibliotecario> inventario;
     private List<Book> books;
+    private List<Revista> revistas;
+    private List<Manual> manuales;
+    
 
     public Library() {
         this.books = new ArrayList<Book>();
@@ -22,7 +26,9 @@ public class Library {
     public List<Book> getBooks(){
         return books;
     }
-    
+    /*
+        agregar nuevo libro a la lista
+    **/
     public boolean saveBook(int stock, int year, String title, String author){
         for (Book book : books) {
             if (book.getAuthor().equals(author) && book.getTitle().equals(title)){
