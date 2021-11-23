@@ -8,13 +8,6 @@ public class elementoBibliotecario {
     private int stock;
     private String author;
     private Date publicationDate;
-
-    public elementoBibliotecario(int id, String title, int stock, String author) {
-        this.id = id;
-        this.title = title;
-        this.stock = stock;
-        this.author = author;
-    }
     
     public elementoBibliotecario(int id, String title, int stock, String author, Date fechaPublicacion) {
         this.id = id;

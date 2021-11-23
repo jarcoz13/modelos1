@@ -1,62 +1,51 @@
 package com.ud.mp.libreria.modelo;
 
 import com.ud.mp.libreria.logica.Libro;
-import com.ud.mp.libreria.logica.Manual;
-import com.ud.mp.libreria.logica.Revista;
-import com.ud.mp.libreria.logica.elementoBibliotecario;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class controlLibros {
-    private List<elementoBibliotecario> todo; 
     private List<Libro> libros;
-    private List<Revista> revistas;
-    private List<Manual> manuales;
-    
 
     public controlLibros() {
-        this.libros = new ArrayList<Libro>();
-        libros.add(new Libro(libros.size(), 4, "Mario Benedetti", "La tregua")); //1974
-        libros.add(new Libro(libros.size(), 3, "Guillermo Arriaga", "El búfalo de la noche"));//1999, 
-        libros.add(new Libro(libros.size(), 5, "Julio Cortazar", "Rayuela")); //1963
-        libros.add(new Libro(libros.size(), 6, "Aldous Huxley", "Un mundo feliz"));//1932, 
-        libros.add(new Libro(libros.size(), 4, "Mario Mendoza", "Akelarre"));//2020, 
-        libros.add(new Libro(libros.size(), 100, "Antoine de Saint-Exupéry", "El principito"));//1943, 
-        libros.add(new Libro(libros.size(), 23, "Gabriel García Márquez", "100 años de soledad"));//1967, 
-        libros.add(new Libro(libros.size(), 4, "Gabriel García Márquez", "La mala obra"));//1962, 
-        libros.add(new Libro(libros.size(), 7, "Gabriel García Márquez", "El coronel no tiene quien le escriba"));//1961, 
+        this.libros = new ArrayList<>();
+        SimpleDateFormat objSDF = new SimpleDateFormat("dd-mm-yyyy"); 
+        try {
+            //new Libro(editorial, libros.size(), title, stock, author, fechaPub)
+            libros.add(new Libro("1", libros.size(), "La tregua", 4, "Mario Benedetti", objSDF.parse("01-01-1974"))); //1974
+            libros.add(new Libro("1", libros.size(), "El búfalo de la noche", 3, "Guillermo Arriaga", objSDF.parse("01-01-1999")));//1999, 
+            libros.add(new Libro("1", libros.size(), "Rayuela", 5, "Julio Cortazar", objSDF.parse("01-01-1963"))); //1963
+            libros.add(new Libro("1", libros.size(), "Un mundo feliz", 6, "Aldous Huxley", objSDF.parse("01-01-1932")));//1932, 
+            libros.add(new Libro("1", libros.size(), "Akelarre", 4, "Mario Mendoza", objSDF.parse("01-01-2020")));//2020, 
+            libros.add(new Libro("1", libros.size(), "El principito", 100, "Antoine de Saint-Exupéry", objSDF.parse("01-01-1943")));//1943, 
+            libros.add(new Libro("1", libros.size(), "100 años de soledad", 23, "Gabriel García Márquez", objSDF.parse("01-01-1967")));//1967, 
+            libros.add(new Libro("1", libros.size(), "La mala obra", 4, "Gabriel García Márquez", objSDF.parse("01-01-1962")));//1962, 
+            libros.add(new Libro("1", libros.size(), "El coronel no tiene quien le escriba", 7, "Gabriel García Márquez", objSDF.parse("01-01-1961")));//1961, 
+        } catch (ParseException ex) {
+            System.out.println("No se lograron agregar elementos a la lista");
+        }
         
-        this.revistas = new ArrayList<Revista>();
-        revistas.add(new Revista(revistas.size(), "Biomédica", 10, "Instituto Nacional de Salud", "Colombia", "Salud"));
-    }
-    
-    public List<elementoBibliotecario> getTodo() {
-        return todo;
     }
 
-    public List<Libro> getLibros() {
-        return libros;
-    }
-
-    public List<Revista> getRevistas() {
-        return revistas;
-    }
-
-    public List<Manual> getManuales() {
-        return manuales;
+    public void mostrarTodo(){
+        for (Libro book : libros)
+            imprimirLibro(book);
     }
     /*
         agregar nuevo libro a la lista
     **/
-    public void agregarNuevoLibro(int stock, String title, String author){
+    public void agregarNuevoLibro(int stock, String title, String author, Date fechaPub, String editorial){
         for (Libro book : libros) {
             if (book.getAuthor().equals(author) && book.getTitle().equals(title)){
                 System.out.println("Ya existe el libro " + title + ".\nSe agrego al inventario.");
-                book.setStock(book.getStock() + 1);
+                book.setStock(book.getStock() + stock);
                 return;
             }
         }
-        libros.add(new Libro(libros.size(), stock,  author, title));
+        libros.add(new Libro(editorial, libros.size(), title, stock, author, fechaPub));
     }
     
     public boolean devolucionLibro(String title, String author){
@@ -91,14 +80,6 @@ public class controlLibros {
         }
     }
     
-    public void buscarLibroPorEditorial(String editorial){
-        for (Libro book : libros) {
-            if (book.getEditorial().equals(editorial)){
-                imprimirLibro(book);
-            }
-        }
-    }
-    
     public void buscarLibroPorAutor(String author){
         for (Libro book : libros) {
             if (book.getAuthor().equals(author)){
@@ -108,9 +89,20 @@ public class controlLibros {
     }
     private void imprimirLibro(Libro book){
         System.out.println("----------------------------------"
-                        +"\nTitúlo:\t" + book.getTitle() 
-                        +"\nAutor:\t" + book.getAuthor()
-                        +"\nInventario:\t" + book.getStock()
-                        +"\n----------------------------------");
+                + "\nId:\t" + book.getId()
+                +"\nTitúlo:\t" + book.getTitle() 
+                +"\nAutor:\t" + book.getAuthor()
+                +"\nInventario:\t" + book.getStock()
+                +"\nFecha Publicaciòn:\t" + book.getPublicationDate().toString()
+                +"\nEditorial:\t " + book.getEditorial()
+                +"\n----------------------------------");
+    }
+    
+    public void buscarLibroPorEditorial(String editorial){
+        for (Libro book : libros) {
+            if (book.getEditorial().equals(editorial)){
+                imprimirLibro(book);
+            }
+        }
     }
 }

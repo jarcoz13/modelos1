@@ -1,5 +1,6 @@
 package com.ud.mp.libreria;
 
+import com.ud.mp.libreria.modelo.*;
 import java.util.Scanner;
 
 public class main {
@@ -8,22 +9,29 @@ public class main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        controlLibros conLib = new controlLibros();
+        controlRevistas conRev = new controlRevistas();
+        controlManuales conMan = new controlManuales();
+        
         boolean seguimos;
         sc = new Scanner(System.in);
         do {            
-            System.out.println("Bienvenido a nuestra biblioteca");
-            System.out.println("1\tListar inventario");
-            System.out.println("2\tAgregar Libro");
-            System.out.println("3\tRemover Libro");
-            System.out.println("4\tBuscar libros por título");
-            System.out.println("5\tBuscar libros por autor");
-            System.out.println("6\tBuscar libros por año");
+            System.out.println(
+                    "Bienvenido a nuestra biblioteca"
+                    + "\n1\tListar inventario"
+                    + "\n2\tAgregar Libro"
+                    + "\n3\tRemover Libro"
+                    + "\n4\tBuscar libros por título"
+                    + "\n5\tBuscar libros por autor"
+                    + "\n6\tBuscar libros por año"
+            );
             
-            int in = sc.nextInt();
+            int in = Integer.parseInt(sc.nextLine());
             
             switch(in){
                 case 1:
                     System.out.println("Listando...");
+                    conLib.mostrarTodo();
                     break;
                 case 2:
                     System.out.println("Ingrese los datos del libro");
@@ -41,7 +49,9 @@ public class main {
                 case 6:
                     System.out.println("Ingrese el año del libro a buscar");
                     break;
-                    
+                default:
+                    System.out.println("Ingrese un valor predeterminado.");
+                    break;
             }
             
             seguimos = true;

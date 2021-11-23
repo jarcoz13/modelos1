@@ -14,16 +14,13 @@ import java.util.Date;
 public class Manual extends elementoBibliotecario{
     private String dispositivo;
     private String hechoEn;
-    
 
-    public Manual(int id, String title, int stock, String author) {
-        super(id, title, stock, author);
-    }
-
-    public Manual(int id, String title, int stock, String author, Date fechaPublicacion) {
+    public Manual(String dispositivo, String hechoEn, int id, String title, int stock, String author, Date fechaPublicacion) {
         super(id, title, stock, author, fechaPublicacion);
+        this.dispositivo = dispositivo;
+        this.hechoEn = hechoEn;
     }
-
+    
     public String getDispositivo() {
         return dispositivo;
     }
