@@ -12,6 +12,9 @@ import java.util.Date;
  * @author Usuario
  */
 public class Manual extends elementoBibliotecario{
+    private String dispositivo;
+    private String hechoEn;
+    
 
     public Manual(int id, String title, int stock, String author) {
         super(id, title, stock, author);
@@ -21,9 +24,22 @@ public class Manual extends elementoBibliotecario{
         super(id, title, stock, author, fechaPublicacion);
     }
 
-    @Override
-    public void agregarElemento() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String getDispositivo() {
+        return dispositivo;
     }
+
+    public void setDispositivo(String dispositivo) {
+        this.dispositivo = dispositivo;
+    }
+
+    public String getHechoEn() {
+        return hechoEn;
+    }
+
+    public void setHechoEn(String hechoEn) {
+        this.hechoEn = hechoEn;
+    }
+
+    
     
 }

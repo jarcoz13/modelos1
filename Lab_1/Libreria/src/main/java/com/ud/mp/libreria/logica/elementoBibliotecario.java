@@ -7,7 +7,7 @@ public abstract class elementoBibliotecario {
     private String title;
     private int stock;
     private String author;
-    private Date fechaPublicacion;
+    private Date publicationDate;
 
     public elementoBibliotecario(int id, String title, int stock, String author) {
         this.id = id;
@@ -21,7 +21,7 @@ public abstract class elementoBibliotecario {
         this.title = title;
         this.stock = stock;
         this.author = author;
-        this.fechaPublicacion = fechaPublicacion;
+        this.publicationDate = fechaPublicacion;
     }
 
     public int getId() {
@@ -52,12 +52,12 @@ public abstract class elementoBibliotecario {
         this.author = author;
     }
 
-    public Date getFechaPublicacion() {
-        return fechaPublicacion;
+    public Date getPublicationDate() {
+        return publicationDate;
     }
 
-    public void setFechaPublicacion(Date fechaPublicacion) {
-        this.fechaPublicacion = fechaPublicacion;
+    public void setPublicationDate(Date fechaPublicacion) {
+        this.publicationDate = fechaPublicacion;
     }
     
     public boolean retirarElemento(){
@@ -66,10 +66,13 @@ public abstract class elementoBibliotecario {
             System.out.println("Retirando " + this.toString() + " " + getTitle());
             return true;
         } else {
-            System.out.println("No hay inventario de " + this.toString() + "(s) " + getTitle());
+            System.out.println("No hay " + this.toString() + " " + getTitle());
             return false;
         }
     }
     
-    public abstract void agregarElemento();
+    public void agregarElemento(){
+        stock++;
+        System.out.println("Agregando " + this.toString() + " " + getTitle()); 
+    }
 }
