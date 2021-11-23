@@ -7,14 +7,14 @@ import com.ud.mp.libreria.logica.elementoBibliotecario;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Library {
+public class controlLibros {
     private List<elementoBibliotecario> todo; 
     private List<Libro> libros;
     private List<Revista> revistas;
     private List<Manual> manuales;
     
 
-    public Library() {
+    public controlLibros() {
         this.libros = new ArrayList<Libro>();
         libros.add(new Libro(libros.size(), 4, "Mario Benedetti", "La tregua")); //1974
         libros.add(new Libro(libros.size(), 3, "Guillermo Arriaga", "El búfalo de la noche"));//1999, 
@@ -30,59 +30,87 @@ public class Library {
         revistas.add(new Revista(revistas.size(), "Biomédica", 10, "Instituto Nacional de Salud", "Colombia", "Salud"));
     }
     
-    public List<Libro> getBooks(){
+    public List<elementoBibliotecario> getTodo() {
+        return todo;
+    }
+
+    public List<Libro> getLibros() {
         return libros;
+    }
+
+    public List<Revista> getRevistas() {
+        return revistas;
+    }
+
+    public List<Manual> getManuales() {
+        return manuales;
     }
     /*
         agregar nuevo libro a la lista
     **/
-    public boolean saveBook(int stock, int year, String title, String author){
+    public void agregarNuevoLibro(int stock, String title, String author){
         for (Libro book : libros) {
             if (book.getAuthor().equals(author) && book.getTitle().equals(title)){
-                return false;
+                System.out.println("Ya existe el libro " + title + ".\nSe agrego al inventario.");
+                book.setStock(book.getStock() + 1);
+                return;
             }
         }
-        libros.add(new Libro(libros.size(), stock,  author, year, title));
-        return true; 
+        libros.add(new Libro(libros.size(), stock,  author, title));
     }
     
-    public boolean removeBook(String title){
+    public boolean devolucionLibro(String title, String author){
         for (Libro book : libros) {
-            if (book.getTitle().equals(title)){
-                libros.remove(book);
+            if (book.getAuthor().equals(author) && book.getTitle().equals(title)){
+                System.out.println("Libro recibido.\nTitúlo: " + title + ".");
+                book.setStock(book.getStock() + 1);
                 return true;
             }
         }
+        System.out.println("Verfica que el libro sea de nuestra biblioteca.");
         return false; 
     }
     
-    public List<Libro> searchBooksByTitle(String title){
-        List<Libro> find = new ArrayList<Libro>();;
+    public boolean retirarLibro(String title, String autor){
+        for (Libro book : libros) {
+            if (book.getTitle().equals(title) && book.getAuthor().equals(autor)){
+                System.out.println("Libro retirado.\nTitúlo: " + title + ".");
+                book.setStock(book.getStock() -1);
+                return true;
+            }
+        }
+        System.out.println("NO tenemos el libro en nuestro inventario.\nTitúlo: " + title + ".");
+        return false; 
+    }
+    
+    public void buscarLibroPorTitulo(String title){
         for (Libro book : libros) {
             if (book.getTitle().equals(title)){
-                find.add(book);
+                imprimirLibro(book);
             }
         }
-        return find;
     }
     
-    public List<Libro> searchBooksByYear(int year){
-        List<Libro> find = new ArrayList<Libro>();;
+    public void buscarLibroPorEditorial(String editorial){
         for (Libro book : libros) {
-            if (book.getYear() == year){
-                find.add(book);
+            if (book.getEditorial().equals(editorial)){
+                imprimirLibro(book);
             }
         }
-        return find;
     }
     
-    public List<Libro> searchBooksByAuthor(String author){
-        List<Libro> find = new ArrayList<Libro>();;
+    public void buscarLibroPorAutor(String author){
         for (Libro book : libros) {
             if (book.getAuthor().equals(author)){
-                find.add(book);
+                imprimirLibro(book);
             }
         }
-        return find;
+    }
+    private void imprimirLibro(Libro book){
+        System.out.println("----------------------------------"
+                        +"\nTitúlo:\t" + book.getTitle() 
+                        +"\nAutor:\t" + book.getAuthor()
+                        +"\nInventario:\t" + book.getStock()
+                        +"\n----------------------------------");
     }
 }

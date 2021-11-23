@@ -20,4 +20,21 @@ public class Revista extends elementoBibliotecario{
     public Revista(int id, String title, int stock, String author, Date fechaPublicacion) {
         super(id, title, stock, author, fechaPublicacion);
     }  
+
+    public String getPais() {
+        return pais;
+    }
+
+    public void setPais(String pais) {
+        this.pais = pais;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+    
 }

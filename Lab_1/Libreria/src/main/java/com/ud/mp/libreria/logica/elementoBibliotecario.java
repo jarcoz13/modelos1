@@ -2,7 +2,7 @@ package com.ud.mp.libreria.logica;
 
 import java.util.Date;
 
-public abstract class elementoBibliotecario {
+public class elementoBibliotecario {
     private int id;
     private String title;
     private int stock;
