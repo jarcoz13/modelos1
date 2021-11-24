@@ -1,54 +1,27 @@
 package com.ud.mp.libreria.controladores;
 
-/**
-package com.ud.mp.libreria.modelo;
-
 import java.util.List;
 
-
 public abstract class ControladorGenerico<T> implements ControladorGenericoInterface<T>{
-
-    public abstract List<T> getElements();
-
     @Override
-    public void listarTodo() {
-        for (T element : getElements()) {
-            System.out.println("----------------------------------"
-                         +"\n" + element.toString()
-                        +"\n----------------------------------");
+    public abstract List<T> getElements();    
+    
+    public void agregarNuevoElemento(T element) {
+        if(!getElements().contains(element)) {
+            System.out.println("Se agrego el elemento");
+            getElements().add(element);
+        } else {
+            System.out.println("Ya existia el elemento");
         }
     }
-
-    public void agregarNuevoElemento(T element) {
-        getElements().add(element);
+    public boolean retirarElemento(T element) {
+        if(getElements().contains(element)) {
+            System.out.println("Eliminando elemento");
+           getElements().remove(element);
+           return true;
+        } else {
+            System.out.println("No existe el elemento");
+            return false;
+        }
     }
-
-    @Override
-    public boolean devolucionElemento(String titulo, String autor) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public boolean retirarElemento(String titulo, String autor) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void buscarElementoPorTitulo(String titulo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void buscarElementoPorAutor(String autor) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void imprimirElemento(T element) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    
-    
 }
-*/

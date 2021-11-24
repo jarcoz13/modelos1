@@ -1,71 +1,66 @@
 package com.ud.mp.libreria.logica;
 
-import java.util.Date;
-
-public class elementoBibliotecario {
-    private int id;
-    private String title;
-    private int stock;
-    private String author;
-    private int year;
+public abstract class elementoBibliotecario implements elementoBibliotecarioInterfaz{
+    private final int id;
+    private String titulo;
+    private int inventario;
+    private String autor;
+    private int anio;
     
-    public elementoBibliotecario(int id, String title, int stock, String author, int fechaPublicacion) {
+    public elementoBibliotecario(int id, String title, int stock, String author, int anio) {
         this.id = id;
-        this.title = title;
-        this.stock = stock;
-        this.author = author;
-        this.year = fechaPublicacion;
+        this.titulo = title;
+        this.inventario = stock;
+        this.autor = author;
+        this.anio = anio;
     }
 
     public int getId() {
         return id;
     }
-
-    public String getTitle() {
-        return title;
+    
+    public String getTitulo() {
+        return titulo;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 
-    public int getStock() {
-        return stock;
+    public int getInventario() {
+        return inventario;
     }
 
-    public void setStock(int stock) {
-        this.stock = stock;
+    public void setInventario(int inventario) {
+        this.inventario = inventario;
     }
 
-    public String getAuthor() {
-        return author;
+    public String getAutor() {
+        return autor;
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
+    public void setAutor(String autor) {
+        this.autor = autor;
     }
 
-    public int getYear() {
-        return year;
+    public int getAnio() {
+        return anio;
     }
 
-    public void setYear(int fechaPublicacion) {
-        this.year = fechaPublicacion;
+    public void setAnio(int anio) {
+        this.anio = anio;
     }
     
-    public boolean retirarElemento(){
-        if( stock > 0 ){
-            stock--;
-            System.out.println("Retirando " + this.toString() + " " + getTitle());
-            return true;
-        } else {
-            System.out.println("No hay " + this.toString() + " " + getTitle());
-            return false;
-        }
-    }
-    
-    public void agregarElemento(){
-        stock++;
-        System.out.println("Agregando " + this.toString() + " " + getTitle()); 
+    @Override
+    public void imprimir(){
+        System.out.println(
+                "----------------------------------"
+                + "\nId:\t" + id
+                + "\nTitúlo:\t" + titulo
+                + "\nAutor:\t" + autor
+                + "\nInventario:\t" + inventario
+                + "\nAño publicación:\t" + anio
+        );
+        
     }
 }

@@ -6,91 +6,85 @@
 package com.ud.mp.libreria.controladores;
 
 import com.ud.mp.libreria.logica.Revista;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
  *
  * @author Usuario
  */
-public class controlRevistas {
+public class controlRevistas extends ControladorGenerico<Revista> {
     private List<Revista> revistas;
     public controlRevistas() {
-        this.revistas = new ArrayList<Revista>();
+        this.revistas = new ArrayList<>();
         revistas.add(new Revista("USA", "Salud", revistas.size(), "Rio Grande Review", 10, "Universidad de Texas", 1981));
-            revistas.add(new Revista("España", "Esoterico", revistas.size(), "Enigma", 20, "ANONIMO", 1995));
-            revistas.add(new Revista("Colombia", "Salud", revistas.size(), "Biomédica", 10, "Instituto Nacional de Salud", 1974));
-       
+        revistas.add(new Revista("España", "Esoterico", revistas.size(), "Enigma", 20, "ANONIMO", 1995));
+        revistas.add(new Revista("Colombia", "Salud", revistas.size(), "Biomédica", 10, "Instituto Nacional de Salud", 1974));   
     }
-    public void mostrarTodo(){
-        for (Revista revista : revistas)
-            imprimirRevista(revista);
+    @Override
+    public List<Revista> getElements() {
+        return revistas;
     }
-    /*
-        agregar nuevo libro a la lista
-    **/
-    public void agregarNuevoRevista(String pais, String categoria, String title, int stock, String author, int year){
-        for (Revista revista : revistas) {
-            if (revista.getAuthor().equals(author) && revista.getTitle().equals(title)){
-                System.out.println("Ya existe el libro " + title + ".\nSe agrego al inventario.");
-                revista.setStock(revista.getStock() + stock);
-                return;
-            }
-        }
-        revistas.add(new Revista(pais, categoria, revistas.size(), title, stock, author, year));
-        //manuales.add(new Manual(manuales.size(),  title, stock, author));
+
+    @Override
+    public void listarTodo() {
+        revistas.forEach(revista -> {
+            revista.imprimir();
+        });
     }
     
-    public boolean devolucionRevista(String title){
-        for (Revista revista : revistas) {
-            if (revista.getTitle().equals(title)){
-                System.out.println("Libro recibido.\nTitúlo: " + title + ".");
-                revista.setStock(revista.getStock() + 1);
-                return true;
-            }
-        }
-        System.out.println("Verfica que el libro sea de nuestra biblioteca.");
-        return false; 
+    public void agregarNuevoElemento( String pais, String categoria, String title, String author, int stock, int anio) {
+        super.agregarNuevoElemento(new Revista(pais, categoria, getElements().size(), title, stock, author, anio));
     }
     
-    public boolean retirarRevista(String title){
-        for (Revista revista : revistas) {
-            if (revista.getTitle().equals(title)){
-                System.out.println("Libro retirado.\nTitúlo: " + title + ".");
-                revista.setStock(revista.getStock() -1);
-                return true;
-            }
-        }
-        System.out.println("NO tenemos el libro en nuestro inventario.\nTitúlo: " + title + ".");
-        return false; 
+    @Override
+    public void agregarNuevoElemento(String title, int stock, String author, int anio) {
+        super.agregarNuevoElemento(new Revista(getElements().size(),title, stock, author, anio));
     }
-    
-    public void buscarRevistaPorTitulo(String title){
-        for (Revista revista : revistas) {
-            if (revista.getTitle().equals(title)){
-                imprimirRevista(revista);
-            }
+
+    @Override
+    public boolean devolverElementos(String titulo, String autor, int cantidad) {
+        Revista revista = obtenerElemento(titulo, autor);
+        if(revista != null){
+            System.out.println("Revista devuelta. \nTitúlo: " + titulo + ".");
+            revista.agregarElementos(cantidad);
+            return true;
+        } else {
+            System.out.println("Verfica que la revista sea de nuestra biblioteca.");
+            return false;
         }
     }
-    
-    public void buscarRevistaPorAutor(String author){
+
+    @Override
+    public boolean retirarElemento(String titulo, String autor) {
+        Revista revista = obtenerElemento(titulo, autor);
+        if(revista != null){
+            System.out.println("Revista retirado.\nTitúlo: " + titulo + ".");
+            super.retirarElemento(revista);
+            return true;
+        } else {
+            System.out.println("NO tenemos la revista en nuestro inventario.\nTitúlo: " + titulo + ".");
+            return false;
+        }
+             
+    }
+
+    @Override
+    public Revista obtenerElemento(String title, String autor) {
         for (Revista revista : revistas) {
-            if (revista.getAuthor().equals(author)){
-                imprimirRevista(revista);
+            if(revista.getTitulo().equals(title) && revista.getAutor().equals(autor)){
+                return revista;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public void imprimirElemento(String title) {
+        for (Revista revista : revistas) {
+            if(revista.getTitulo().equals(title)){
+                revista.imprimir();
             }
         }
     }
-    private void imprimirRevista(Revista revista){
-        System.out.println(
-                "----------------------------------"
-                    + "\nId:\t" + revista.getId()
-                    +"\nTitúlo:\t" + revista.getTitle() 
-                    +"\nAutor:\t" + revista.getAuthor()
-                    +"\nInventario:\t" + revista.getStock()
-                        + "\n----------------------------------");
-    }
-    
 }

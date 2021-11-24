@@ -26,11 +26,12 @@ public class Modelo {
         do {            
             System.out.println(
                     "Bienvenido a nuestra biblioteca"
-                    + "\n1\tListar inventario"
-                    + "\n2\tAgregar Elemento"
-                    + "\n3\tRemover Elemento"
-                    + "\n4\tBuscar"
-                    + "\n5\tSalir"
+                    + "\n1.\tListar inventario"
+                    + "\n2.\tAgregar Elemento"
+                    + "\n3.\tPrestamo de Elemento"
+                    + "\n4.\tRemover Elemento"
+                    + "\n5.\tBuscar"
+                    + "\n6.\tSalir"
             );
             
             opcion  = Integer.parseInt(sc.nextLine());
@@ -41,15 +42,15 @@ public class Modelo {
                     int ca = Integer.parseInt(sc.nextLine());
                     System.out.println("Mostrando ");
                     if ( ca == 1){
-                        manejadorLibros.mostrarTodo();
-                        manejadorManuales.mostrarTodo();
-                        manejadorRevistas.mostrarTodo();
+                        manejadorLibros.listarTodo();
+                        manejadorManuales.listarTodo();
+                        manejadorRevistas.listarTodo();
                     } else if (ca == 2){
-                        manejadorLibros.mostrarTodo();
+                        manejadorLibros.listarTodo();
                     }else if (ca == 3){
-                        manejadorRevistas.mostrarTodo();
+                        manejadorRevistas.listarTodo();
                     }else if (ca == 4){
-                        manejadorManuales.mostrarTodo();
+                        manejadorManuales.listarTodo();
                     }
                     break;
                 case 2:
@@ -63,27 +64,37 @@ public class Modelo {
                         agregarManual();
                     break;
                 case 3:
+                    System.out.println("Eliga el tipo de elemento que va a PEDIR PRESTADO");
+                    tipo = devolverTipo();
+                    if( tipo == 1 )
+                        pedirLibro();
+                    else if( tipo == 2 )
+                        pedirRevista();
+                    else if( tipo == 3 )
+                        pedirManual();
+                    break;
+                case 4:
                     System.out.println("Eliga el tipo de elemento que va a DAR DE BAJA");
                     tipo = devolverTipo();
                     if( tipo == 1 )
-                        eliminarLibro();
+                        manejadorLibros.retirarElemento(obtenerTitulo(), obtenerAutor());
                     else if( tipo == 2 )
-                        manejadorRevistas.retirarRevista(obtenerTitulo());
+                        manejadorRevistas.retirarElemento(obtenerTitulo(), obtenerAutor());
                     else if( tipo == 3 )
-                        manejadorManuales.retirarManual(obtenerTitulo());
+                        manejadorManuales.retirarElemento(obtenerTitulo(), obtenerAutor());
                     break;
-                case 4:
+                case 5:
                     System.out.println("¿Que desea buscar?");
                     tipo = devolverTipo();
                     //System.out.println("");
                     if( tipo == 1 )
-                        manejadorLibros.buscarLibroPorTitulo(obtenerTitulo());
+                        manejadorLibros.imprimirElemento(obtenerTitulo());
                     else if( tipo == 2 )
-                        manejadorRevistas.buscarRevistaPorTitulo(obtenerTitulo());
+                        manejadorRevistas.imprimirElemento(obtenerTitulo());
                     else if( tipo == 3 )
-                        manejadorManuales.buscarManualPorTitulo(obtenerTitulo());
+                        manejadorManuales.imprimirElemento(obtenerTitulo());
                     break;
-                case 5:
+                case 6:
                     System.out.println("Saliendo...");
                     seguimos = false;
                     break;
@@ -98,39 +109,45 @@ public class Modelo {
     private int devolverTipo(){
         int salida = 0;
         do{
-            System.out.println("Eliga el tipo de elemento\n1.\tLibro\n2.\tRevista\n3.\tManual");
+            System.out.println("1.\tLibro\n2.\tRevista\n3.\tManual");
             salida = Integer.parseInt(sc.nextLine());
         }while(salida < 1 || salida > 3);
         return salida;
     } 
     
+    private String[] datosBasicos(String tipo){
+        if(tipo.equals("revista")){
+            tipo = "de la " + tipo;
+        } else {
+            tipo = "del " + tipo;
+        }
+        String [] datos = new String[4];
+        System.out.println("Ingrese el titúlo "+tipo+": ");
+        datos[0] = sc.nextLine();
+        
+        System.out.println("Ingrese el nombre del autor(a) "+tipo+": ");
+        datos[1] = sc.nextLine();
+        
+        System.out.println("Ingrese el año de publicación "+tipo+": ");
+        datos[2] = sc.nextLine();
+        
+        System.out.println("Ingrese la cantidad de ejemplares que va a ingresar " + tipo + " " + datos[0] + ": ");
+        datos[3] = sc.nextLine();
+        
+        return datos;
+    }
+    
     private void agregarLibro(){
         
-        System.out.println("Ingrese el titúlo del libro: ");
-        String title = sc.nextLine();
-        
-        System.out.println("Ingrese el nombre del autor(a) del libro: ");
-        String autor = sc.nextLine();
+        String datos[] = datosBasicos("libro");
         
         System.out.println("Ingrese el nombre de la editorial del libro: ");
         String editorial = sc.nextLine();
-        
-        System.out.println("Ingrese el año de publicación del libro: ");
-        int anio = Integer.parseInt(sc.nextLine());
-        
-        System.out.println("Ingrese la cantidad de ejemplares que va a ingresar del libro "+ title+ " " + autor +": ");
-        int stock = Integer.parseInt(sc.nextLine());
-        
-        manejadorLibros.agregarNuevoLibro(stock, title, autor, anio, editorial);
+        manejadorLibros.agregarNuevoElemento(datos[0], datos[1], Integer.parseInt(datos[3]), Integer.parseInt(datos[2]), editorial);
     }
     
     private void agregarRevista(){
-        
-        System.out.println("Ingrese el titúlo de la revista: ");
-        String title = sc.nextLine();
-        
-        System.out.println("Ingrese el nombre del autor(a) de la revista: ");
-        String autor = sc.nextLine();
+        String datos[] = datosBasicos("revista");
         
         System.out.println("Ingrese la categoria de la revista: ");
         String categoria = sc.nextLine();
@@ -138,52 +155,28 @@ public class Modelo {
         System.out.println("Ingrese el país de la revista: ");
         String pais = sc.nextLine();
         
-        System.out.println("Ingrese el año de publicación de la revista: ");
-        int anio = Integer.parseInt(sc.nextLine());
-        
-        System.out.println("Ingrese la cantidad de ejemplares que va a ingresar de la revista "+ title+ " " + autor +": ");
-        int stock = Integer.parseInt(sc.nextLine());
-        
-        manejadorRevistas.agregarNuevoRevista(pais, categoria, title, stock, autor, anio);
+        manejadorRevistas.agregarNuevoElemento(pais, categoria, datos[0], datos[1], Integer.parseInt(datos[3]), Integer.parseInt(datos[2]));
                 
     }
     
     private void agregarManual(){
-        
-        System.out.println("Ingrese el titúlo del manual: ");
-        String title = sc.nextLine();
-        
-        System.out.println("Ingrese el nombre del autor(a) del manual: ");
-        String autor = sc.nextLine();
+        String datos[] = datosBasicos("manual");
         
         System.out.println("Ingrese el dispositivo al cual corresponde el manual: ");
         String dispositivo = sc.nextLine();
         
         System.out.println("Ingrese el país del manual: ");
         String pais = sc.nextLine();
-        
-        System.out.println("Ingrese el año de publicación del manual: ");
-        int anio = Integer.parseInt(sc.nextLine());
-        
-        System.out.println("Ingrese la cantidad de ejemplares que va a ingresar del manual "+ title+ " " + autor +": ");
-        int stock = Integer.parseInt(sc.nextLine());
-        
-        manejadorManuales.agregarNuevoManual(dispositivo, pais, title, stock, autor, anio);
-        ;
-    }
-    
-    private void eliminarLibro(){
-        System.out.println("Ingrese el titúlo de la revista a eliminar: ");
-        String titulo = sc.nextLine();
-        
-        System.out.println("Ingrese el nombre del autor(a) del objeto a eliminar: ");
-        String autor = sc.nextLine();
-        
-        manejadorLibros.retirarLibro(titulo, autor);
+
+        manejadorManuales.agregarNuevoElemento(dispositivo, pais, datos[0], Integer.parseInt(datos[3]), datos[1], Integer.parseInt(datos[2]));
     }
     
     private String obtenerTitulo(){
         System.out.println("Ingrese el titúlo del objeto: ");
+        return sc.nextLine();
+    }
+    private String obtenerAutor(){
+        System.out.println("Ingrese el nombre del autor del objeto: ");
         return sc.nextLine();
     }
     

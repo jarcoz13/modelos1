@@ -4,7 +4,7 @@ import com.ud.mp.libreria.logica.Libro;
 import java.util.ArrayList;
 import java.util.List;
 
-public class controlLibros {
+public class controlLibros extends ControladorGenerico<Libro>{
     private List<Libro> libros;
 
     public controlLibros() {
@@ -21,79 +21,69 @@ public class controlLibros {
         libros.add(new Libro("1", libros.size(), "La mala obra", 4, "Gabriel García Márquez", 1962));//1962, 
         libros.add(new Libro("1", libros.size(), "El coronel no tiene quien le escriba", 7, "Gabriel García Márquez", 1961));//1961, 
     }
+    
+    @Override
+    public List<Libro> getElements() {
+        return libros;
+    }
 
-    public void mostrarTodo(){
+    @Override
+    public void listarTodo() {
         for (Libro book : libros)
-            imprimirLibro(book);
-    }
-    /*
-        agregar nuevo libro a la lista
-    **/
-    public void agregarNuevoLibro(int stock, String title, String author, int year, String editorial){
-        for (Libro book : libros) {
-            if (book.getAuthor().equals(author) && book.getTitle().equals(title)){
-                System.out.println("Ya existe el libro " + title + ".\nSe agrego al inventario.");
-                book.setStock(book.getStock() + stock);
-                return;
-            }
-        }
-        libros.add(new Libro(editorial, libros.size(), title, stock, author, year));
+            book.imprimir();
     }
     
-    public boolean devolucionLibro(String title, String author){
-        for (Libro book : libros) {
-            if (book.getAuthor().equals(author) && book.getTitle().equals(title)){
-                System.out.println("Libro recibido.\nTitúlo: " + title + ".");
-                book.setStock(book.getStock() + 1);
-                return true;
-            }
-        }
-        System.out.println("Verfica que el libro sea de nuestra biblioteca.");
-        return false; 
+    public void agregarNuevoElemento( String title, String author, int stock, int anio, String editorial) {
+        super.agregarNuevoElemento(new Libro(editorial, getElements().size(),title, stock, author, anio));
     }
     
-    public boolean retirarLibro(String title, String autor){
-        for (Libro book : libros) {
-            if (book.getTitle().equals(title) && book.getAuthor().equals(autor)){
-                System.out.println("Libro retirado.\nTitúlo: " + title + ".");
-                book.setStock(book.getStock() -1);
-                return true;
-            }
-        }
-        System.out.println("NO tenemos el libro en nuestro inventario.\nTitúlo: " + title + ".");
-        return false; 
+    @Override
+    public void agregarNuevoElemento(String title, int stock, String author, int anio) {
+        super.agregarNuevoElemento(new Libro(getElements().size(),title, stock, author, anio));
     }
-    
-    public void buscarLibroPorTitulo(String title){
-        for (Libro book : libros) {
-            if (book.getTitle().equals(title)){
-                imprimirLibro(book);
-            }
+
+    @Override
+    public boolean devolverElementos(String titulo, String autor, int cantidad) {
+        Libro libro = obtenerElemento(titulo, autor);
+        if(libro != null){
+            System.out.println(this.toString() + " devuelto. \nTitúlo: " + titulo + ".");
+            libro.agregarElementos(cantidad);
+            return true;
+        } else {
+            System.out.println("Verfica que el libro sea de nuestra biblioteca.");
+            return false;
         }
     }
-    
-    public void buscarLibroPorAutor(String author){
-        for (Libro book : libros) {
-            if (book.getAuthor().equals(author)){
-                imprimirLibro(book);
+
+    @Override
+    public boolean retirarElemento(String titulo, String autor) {
+        Libro libro = obtenerElemento(titulo, autor);
+        if(libro != null){
+            System.out.println("Libro retirado.\nTitúlo: " + titulo + ".");
+            super.retirarElemento(libro);
+            return true;
+        } else {
+            System.out.println("NO tenemos el libro en nuestro inventario.\nTitúlo: " + titulo + ".");
+            return false;
+        }
+             
+    }
+
+    @Override
+    public Libro obtenerElemento(String title, String autor) {
+        for (Libro libro : libros) {
+            if(libro.getTitulo().equals(title) && libro.getAutor().equals(autor)){
+                return libro;
             }
         }
+        return null;
     }
-    private void imprimirLibro(Libro book){
-        System.out.println("----------------------------------"
-                + "\nId:\t" + book.getId()
-                +"\nTitúlo:\t" + book.getTitle() 
-                +"\nAutor:\t" + book.getAuthor()
-                +"\nInventario:\t" + book.getStock()
-                +"\nAño publicación:\t" + book.getYear()
-                +"\nEditorial:\t " + book.getEditorial()
-                +"\n----------------------------------");
-    }
-    
-    public void buscarLibroPorEditorial(String editorial){
-        for (Libro book : libros) {
-            if (book.getEditorial().equals(editorial)){
-                imprimirLibro(book);
+
+    @Override
+    public void imprimirElemento(String title) {
+        for (Libro libro : libros) {
+            if(libro.getTitulo().equals(title)){
+                libro.imprimir();
             }
         }
     }
