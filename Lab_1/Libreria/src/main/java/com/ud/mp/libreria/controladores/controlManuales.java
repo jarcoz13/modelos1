@@ -12,15 +12,9 @@ public class controlManuales {
 
     public controlManuales() {
         manuales = new ArrayList<>();
-        SimpleDateFormat objSDF = new SimpleDateFormat("dd-mm-yyyy"); 
-        
-        try {
-            manuales.add(new Manual("Calculadora", "USA", manuales.size(), "Calculadora", 2, "Casio", objSDF.parse("01-01-2001")));
-            manuales.add(new Manual("Impresora", "Japon", manuales.size(), "Impresora HP", 3, "HP", objSDF.parse("01-01-2002")));
-            manuales.add(new Manual("Poratil", "China", manuales.size(), "Portatil 14 pulgadas", 4, "Lenovo", objSDF.parse("01-01-1999")));
-        } catch (ParseException ex) {
-            System.out.println("No se pudieron leer los manuales");
-        }
+        manuales.add(new Manual("Calculadora", "USA", manuales.size(), "Calculadora", 2, "Casio", 2001));
+            manuales.add(new Manual("Impresora", "Japon", manuales.size(), "Impresora HP", 3, "HP", 2002));
+            manuales.add(new Manual("Poratil", "China", manuales.size(), "Portatil 14 pulgadas", 4, "Lenovo", 1999));
         
     }
     
@@ -31,7 +25,7 @@ public class controlManuales {
     /*
         agregar nuevo libro a la lista
     **/
-    public void agregarNuevoManual(String dispositivo, String hechoEn, int id, String title, int stock, String author, Date fechaPublicacion){
+    public void agregarNuevoManual(String dispositivo, String hechoEn, String title, int stock, String author, int year){
         for (Manual manual : manuales) {
             if (manual.getAuthor().equals(author) && manual.getTitle().equals(title)){
                 System.out.println("Ya existe el libro " + title + ".\nSe agrego al inventario.");
@@ -39,7 +33,7 @@ public class controlManuales {
                 return;
             }
         }
-        manuales.add(new Manual(dispositivo, hechoEn, manuales.size(), title, stock, author, fechaPublicacion));
+        manuales.add(new Manual(dispositivo, hechoEn, manuales.size(), title, stock, author, year));
         //manuales.add(new Manual(manuales.size(),  title, stock, author));
     }
     
@@ -89,7 +83,6 @@ public class controlManuales {
                     +"\nTitúlo:\t" + manual.getTitle() 
                     +"\nAutor:\t" + manual.getAuthor()
                     +"\nInventario:\t" + manual.getStock()
-                    +""
                         + "\n----------------------------------");
     }
 }

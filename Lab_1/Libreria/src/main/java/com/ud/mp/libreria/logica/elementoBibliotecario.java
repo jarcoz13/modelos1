@@ -7,14 +7,14 @@ public class elementoBibliotecario {
     private String title;
     private int stock;
     private String author;
-    private Date publicationDate;
+    private int year;
     
-    public elementoBibliotecario(int id, String title, int stock, String author, Date fechaPublicacion) {
+    public elementoBibliotecario(int id, String title, int stock, String author, int fechaPublicacion) {
         this.id = id;
         this.title = title;
         this.stock = stock;
         this.author = author;
-        this.publicationDate = fechaPublicacion;
+        this.year = fechaPublicacion;
     }
 
     public int getId() {
@@ -45,12 +45,12 @@ public class elementoBibliotecario {
         this.author = author;
     }
 
-    public Date getPublicationDate() {
-        return publicationDate;
+    public int getYear() {
+        return year;
     }
 
-    public void setPublicationDate(Date fechaPublicacion) {
-        this.publicationDate = fechaPublicacion;
+    public void setYear(int fechaPublicacion) {
+        this.year = fechaPublicacion;
     }
     
     public boolean retirarElemento(){

@@ -5,15 +5,12 @@
  */
 package com.ud.mp.libreria.controladores;
 
-import com.ud.mp.libreria.logica.Manual;
 import com.ud.mp.libreria.logica.Revista;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -23,15 +20,9 @@ public class controlRevistas {
     private List<Revista> revistas;
     public controlRevistas() {
         this.revistas = new ArrayList<Revista>();
-        SimpleDateFormat objSDF = new SimpleDateFormat("dd-mm-yyyy"); 
-        
-        try {
-            revistas.add(new Revista("USA", "Salud", revistas.size(), "Rio Grande Review", 10, "Universidad de Texas", objSDF.parse("01-01-1981")));
-            revistas.add(new Revista("España", "Esoterico", revistas.size(), "Enigma", 20, "ANONIMO", objSDF.parse("01-01-1995")));
-            revistas.add(new Revista("Colombia", "Salud", revistas.size(), "Biomédica", 10, "Instituto Nacional de Salud", objSDF.parse("01-01-1974")));
-        } catch (ParseException ex) {
-            System.out.println("No se lograron agregar las revistas");
-        }
+        revistas.add(new Revista("USA", "Salud", revistas.size(), "Rio Grande Review", 10, "Universidad de Texas", 1981));
+            revistas.add(new Revista("España", "Esoterico", revistas.size(), "Enigma", 20, "ANONIMO", 1995));
+            revistas.add(new Revista("Colombia", "Salud", revistas.size(), "Biomédica", 10, "Instituto Nacional de Salud", 1974));
        
     }
     public void mostrarTodo(){
@@ -41,7 +32,7 @@ public class controlRevistas {
     /*
         agregar nuevo libro a la lista
     **/
-    public void agregarNuevoRevista(String pais, String categoria, int id, String title, int stock, String author, Date fechaPublicacion){
+    public void agregarNuevoRevista(String pais, String categoria, String title, int stock, String author, int year){
         for (Revista revista : revistas) {
             if (revista.getAuthor().equals(author) && revista.getTitle().equals(title)){
                 System.out.println("Ya existe el libro " + title + ".\nSe agrego al inventario.");
@@ -49,7 +40,7 @@ public class controlRevistas {
                 return;
             }
         }
-        revistas.add(new Revista(pais, categoria, id, title, stock, author, fechaPublicacion));
+        revistas.add(new Revista(pais, categoria, revistas.size(), title, stock, author, year));
         //manuales.add(new Manual(manuales.size(),  title, stock, author));
     }
     
@@ -99,7 +90,6 @@ public class controlRevistas {
                     +"\nTitúlo:\t" + revista.getTitle() 
                     +"\nAutor:\t" + revista.getAuthor()
                     +"\nInventario:\t" + revista.getStock()
-                    +""
                         + "\n----------------------------------");
     }
     

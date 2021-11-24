@@ -7,8 +7,8 @@ public class Revista extends elementoBibliotecario{
     private String pais;
     private String categoria;
 
-    public Revista(String pais, String categoria, int id, String title, int stock, String author, Date fechaPublicacion) {
-        super(id, title, stock, author, fechaPublicacion);
+    public Revista(String pais, String categoria, int id, String title, int stock, String author, int year) {
+        super(id, title, stock, author, year);
         this.pais = pais;
         this.categoria = categoria;
     }

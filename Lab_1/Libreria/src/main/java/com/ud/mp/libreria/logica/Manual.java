@@ -15,8 +15,8 @@ public class Manual extends elementoBibliotecario{
     private String dispositivo;
     private String hechoEn;
 
-    public Manual(String dispositivo, String hechoEn, int id, String title, int stock, String author, Date fechaPublicacion) {
-        super(id, title, stock, author, fechaPublicacion);
+    public Manual(String dispositivo, String hechoEn, int id, String title, int stock, String author, int year) {
+        super(id, title, stock, author, year);
         this.dispositivo = dispositivo;
         this.hechoEn = hechoEn;
     }

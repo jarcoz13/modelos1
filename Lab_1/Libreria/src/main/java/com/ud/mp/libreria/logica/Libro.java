@@ -5,8 +5,8 @@ import java.util.Date;
 public class Libro extends elementoBibliotecario {
     private String editorial;
 
-    public Libro(String editorial, int id, String title, int stock, String author, Date fechaPublicacion) {
-        super(id, title, stock, author, fechaPublicacion);
+    public Libro(String editorial, int id, String title, int stock, String author, int year) {
+        super(id, title, stock, author, year);
         this.editorial = editorial;
     }
     
