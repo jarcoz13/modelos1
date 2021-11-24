@@ -15,13 +15,8 @@ import java.util.Scanner;
  * @author Usuario
  */
 public class Modelo {
-    static Scanner sc;
-    private static void agregarLibro(){
-        int id = Integer.parseInt(sc.nextLine());
-        // = Integer.parseInt(sc.nextLine());
-        //int id = Integer.parseInt(sc.nextLine());
-        
-    }
+    private Scanner sc;
+    
     public void start(){
         controlLibros conLib = new controlLibros();
         controlRevistas conRev = new controlRevistas();
@@ -33,18 +28,18 @@ public class Modelo {
             System.out.println(
                     "Bienvenido a nuestra biblioteca"
                     + "\n1\tListar inventario"
-                    + "\n2\tAgregar Libro"
-                    + "\n3\tRemover Libro"
-                    + "\n4\tBuscar libros por título"
-                    + "\n5\tBuscar libros por autor"
-                    + "\n6\tBuscar libros por año"
+                    + "\n2\tAgregar Elemento"
+                    + "\n3\tRemover Elemento"
+                    + "\n4\tBuscar Elemento por título"
+                    + "\n5\tBuscar Elemento por autor"
+                    + "\n6\tBuscar Elemento por año"
             );
             
             int in = Integer.parseInt(sc.nextLine());
             
             switch(in){
                 case 1:
-                    System.out.println("Listar\n1.\tTodo\n2.\tLibros\n.3\tRevistas\n4.\tManuales");
+                    System.out.println("Listar\n1.\tTodo\n2.\tLibros\n3.\tRevistas\n4.\tManuales");
                     int ca = Integer.parseInt(sc.nextLine());
                     System.out.println("Mostrando ");
                     if ( ca == 1){
@@ -83,5 +78,19 @@ public class Modelo {
             seguimos = true;
         } while (seguimos);
         sc.close();
+    }
+    
+    private int devolverTipo(){
+        int salida = 0;
+        do{
+            System.out.println("Eliga el tipo de elemento\n1.\tLibro\n2.\tRevistas\n4.\tManuales");
+                    
+            
+        }while();
+    } 
+    
+    private void agregarLibro(){
+        int id = Integer.parseInt(sc.nextLine());
+           
     }
 }
