@@ -16,6 +16,6 @@ la aplicacion busca modelar la implementacion de una biblioteca prestamo de libr
 
 
 # Laboratorio_1
-![](ejemplo.drawio?display=inline-block) 
+![](DiegramaLibreria.svg?display=inline-block) 
 
 
