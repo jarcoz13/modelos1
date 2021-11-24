@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.ud.mp.libreria.modelo;
 
 import com.ud.mp.libreria.controladores.controlLibros;
@@ -10,22 +5,24 @@ import com.ud.mp.libreria.controladores.controlManuales;
 import com.ud.mp.libreria.controladores.controlRevistas;
 import java.util.Scanner;
 
-/**
- *
- * @author Usuario
- */
 public class Modelo {
-    private controlLibros manejadorLibros = new controlLibros();
-    private controlRevistas manejadorRevistas = new controlRevistas();
-    private controlManuales manejadorManuales = new controlManuales();
+    private final controlLibros manejadorLibros;
+    private final controlRevistas manejadorRevistas;
+    private final controlManuales manejadorManuales;
     private Scanner sc;
+    
+    public Modelo(){
+        manejadorLibros = new controlLibros();
+        manejadorRevistas = new controlRevistas();
+        manejadorManuales = new controlManuales();
+        sc = new Scanner(System.in);
+    }
     
     public void start(){
         int tipo;
+        int opcion;
+        boolean seguimos = true;
         
-        
-        boolean seguimos;
-        sc = new Scanner(System.in);
         do {            
             System.out.println(
                     "Bienvenido a nuestra biblioteca"
@@ -33,11 +30,12 @@ public class Modelo {
                     + "\n2\tAgregar Elemento"
                     + "\n3\tRemover Elemento"
                     + "\n4\tBuscar"
+                    + "\n5\tSalir"
             );
             
-            int in = Integer.parseInt(sc.nextLine());
+            opcion  = Integer.parseInt(sc.nextLine());
             
-            switch(in){
+            switch(opcion){
                 case 1:
                     System.out.println("Listar\n1.\tTodo\n2.\tLibros\n3.\tRevistas\n4.\tManuales");
                     int ca = Integer.parseInt(sc.nextLine());
@@ -85,12 +83,14 @@ public class Modelo {
                     else if( tipo == 3 )
                         manejadorManuales.buscarManualPorTitulo(obtenerTitulo());
                     break;
+                case 5:
+                    System.out.println("Saliendo...");
+                    seguimos = false;
+                    break;
                 default:
                     System.out.println("Ingrese un valor predeterminado.");
                     break;
             }
-            
-            seguimos = true;
         } while (seguimos);
         sc.close();
     }

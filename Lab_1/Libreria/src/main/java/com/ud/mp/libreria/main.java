@@ -1,8 +1,6 @@
 package com.ud.mp.libreria;
 
-import com.sun.org.apache.bcel.internal.generic.AALOAD;
 import com.ud.mp.libreria.modelo.Modelo;
-import java.util.Scanner;
 
 public class main {
     
