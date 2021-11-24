@@ -2,6 +2,7 @@ package com.ud.mp.libreria.modelo;
 
 import java.util.List;
 import com.ud.mp.libreria.logica.Manual;
+import java.util.Date;
 
 public class controlManuales {
     private List<Manual> manuales;
@@ -13,7 +14,7 @@ public class controlManuales {
     /*
         agregar nuevo libro a la lista
     **/
-    public void agregarNuevoManual(int stock, String title, String author){
+    public void agregarNuevoManual(String dispositivo, String hechoEn, int id, String title, int stock, String author, Date fechaPublicacion){
         for (Manual manual : manuales) {
             if (manual.getAuthor().equals(author) && manual.getTitle().equals(title)){
                 System.out.println("Ya existe el libro " + title + ".\nSe agrego al inventario.");
@@ -21,12 +22,13 @@ public class controlManuales {
                 return;
             }
         }
-        manuales.add(new Manual(manuales.size(),  title, stock, author));
+        manuales.add(new Manual(dispositivo, hechoEn, manuales.size(), title, stock, author, fechaPublicacion));
+        //manuales.add(new Manual(manuales.size(),  title, stock, author));
     }
     
-    public boolean devolucionManual(String title, String author){
+    public boolean devolucionManual(String title){
         for (Manual manual : manuales) {
-            if (manual.getAuthor().equals(author) && manual.getTitle().equals(title)){
+            if (manual.getTitle().equals(title)){
                 System.out.println("Libro recibido.\nTitúlo: " + title + ".");
                 manual.setStock(manual.getStock() + 1);
                 return true;
@@ -36,9 +38,9 @@ public class controlManuales {
         return false; 
     }
     
-    public boolean retirarManual(String title, String autor){
+    public boolean retirarManual(String title){
         for (Manual manual : manuales) {
-            if (manual.getTitle().equals(title) && manual.getAuthor().equals(autor)){
+            if (manual.getTitle().equals(title)){
                 System.out.println("Libro retirado.\nTitúlo: " + title + ".");
                 manual.setStock(manual.getStock() -1);
                 return true;
@@ -64,10 +66,13 @@ public class controlManuales {
         }
     }
     private void imprimirManual(Manual manual){
-        System.out.println("----------------------------------"
-                        +"\nTitúlo:\t" + manual.getTitle() 
-                        +"\nAutor:\t" + manual.getAuthor()
-                        +"\nInventario:\t" + manual.getStock()
-                        +"\n----------------------------------");
+        System.out.println(
+                "----------------------------------"
+                    + "\nId:\t" + manual.getId()
+                    +"\nTitúlo:\t" + manual.getTitle() 
+                    +"\nAutor:\t" + manual.getAuthor()
+                    +"\nInventario:\t" + manual.getStock()
+                    +""
+                        + "\n----------------------------------");
     }
 }
