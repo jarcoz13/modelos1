@@ -1,6 +1,8 @@
+package com.ud.mp.libreria.controladores;
+
+/**
 package com.ud.mp.libreria.modelo;
 
-import com.ud.mp.libreria.logica.elementoBibliotecario;
 import java.util.List;
 
 
@@ -49,3 +51,4 @@ public abstract class ControladorGenerico<T> implements ControladorGenericoInter
     
     
 }
+*/

@@ -13,10 +13,6 @@ public class Revista extends elementoBibliotecario{
         this.categoria = categoria;
     }
 
-    public Revista(int id, String title, int stock, String author, Date fechaPublicacion) {
-        super(id, title, stock, author, fechaPublicacion);
-    }  
-
     public String getPais() {
         return pais;
     }

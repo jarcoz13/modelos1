@@ -1,4 +1,6 @@
-package com.ud.mp.libreria.modelo;
+package com.ud.mp.libreria.controladores;
+
+/**package com.ud.mp.libreria.modelo;
 
 import java.util.List;
 
@@ -13,3 +15,4 @@ public interface ControladorGenericoInterface <T> {
     public void buscarElementoPorAutor(String autor);
     public void imprimirElemento(T element);
 }
+*/

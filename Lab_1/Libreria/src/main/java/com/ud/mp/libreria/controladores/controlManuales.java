@@ -1,11 +1,28 @@
-package com.ud.mp.libreria.modelo;
+package com.ud.mp.libreria.controladores;
 
 import java.util.List;
 import com.ud.mp.libreria.logica.Manual;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class controlManuales {
     private List<Manual> manuales;
+
+    public controlManuales() {
+        manuales = new ArrayList<>();
+        SimpleDateFormat objSDF = new SimpleDateFormat("dd-mm-yyyy"); 
+        
+        try {
+            manuales.add(new Manual("Calculadora", "USA", manuales.size(), "Calculadora", 2, "Casio", objSDF.parse("01-01-2001")));
+            manuales.add(new Manual("Impresora", "Japon", manuales.size(), "Impresora HP", 3, "HP", objSDF.parse("01-01-2002")));
+            manuales.add(new Manual("Poratil", "China", manuales.size(), "Portatil 14 pulgadas", 4, "Lenovo", objSDF.parse("01-01-1999")));
+        } catch (ParseException ex) {
+            System.out.println("No se pudieron leer los manuales");
+        }
+        
+    }
     
     public void mostrarTodo(){
         for (Manual manual : manuales)

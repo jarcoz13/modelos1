@@ -1,4 +1,4 @@
-package com.ud.mp.libreria.modelo;
+package com.ud.mp.libreria.controladores;
 
 import com.ud.mp.libreria.logica.Libro;
 import java.text.ParseException;
