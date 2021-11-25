@@ -1,20 +1,20 @@
 package com.ud.mp.libreria.modelo;
 
-import com.ud.mp.libreria.controladores.controlLibros;
-import com.ud.mp.libreria.controladores.controlManuales;
-import com.ud.mp.libreria.controladores.controlRevistas;
+import com.ud.mp.libreria.controladores.ControlLibros;
+import com.ud.mp.libreria.controladores.ControlManuales;
+import com.ud.mp.libreria.controladores.ControlRevistas;
 import java.util.Scanner;
 
 public class Modelo {
-    private final controlLibros manejadorLibros;
-    private final controlRevistas manejadorRevistas;
-    private final controlManuales manejadorManuales;
+    private final ControlLibros manejadorLibros;
+    private final ControlRevistas manejadorRevistas;
+    private final ControlManuales manejadorManuales;
     private Scanner sc;
     
     public Modelo(){
-        manejadorLibros = new controlLibros();
-        manejadorRevistas = new controlRevistas();
-        manejadorManuales = new controlManuales();
+        manejadorLibros = new ControlLibros();
+        manejadorRevistas = new ControlRevistas();
+        manejadorManuales = new ControlManuales();
         sc = new Scanner(System.in);
     }
     

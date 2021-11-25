@@ -2,7 +2,7 @@ package com.ud.mp.libreria;
 
 import com.ud.mp.libreria.modelo.Modelo;
 
-public class main {
+public class Main {
     
     /**
      * @param args the command line arguments

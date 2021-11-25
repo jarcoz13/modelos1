@@ -1,13 +1,13 @@
 package com.ud.mp.libreria.logica;
 
-public abstract class elementoBibliotecario implements elementoBibliotecarioInterfaz{
+public abstract class ElementoBibliotecario implements ElementoBibliotecarioInterfaz{
     private final int id;
     private String titulo;
     private int inventario;
     private String autor;
     private int anio;
     
-    public elementoBibliotecario(int id, String title, int stock, String author, int anio) {
+    public ElementoBibliotecario(int id, String title, int stock, String author, int anio) {
         this.id = id;
         this.titulo = title;
         this.inventario = stock;

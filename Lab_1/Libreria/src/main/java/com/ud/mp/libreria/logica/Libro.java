@@ -1,6 +1,6 @@
 package com.ud.mp.libreria.logica;
 
-public class Libro extends elementoBibliotecario {
+public class Libro extends ElementoBibliotecario {
     private String editorial;
     public Libro(int id, String title, int stock, String author, int anio) {
         super(id, title, stock, author, anio);

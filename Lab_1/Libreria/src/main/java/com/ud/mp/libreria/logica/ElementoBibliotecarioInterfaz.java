@@ -1,6 +1,6 @@
 package com.ud.mp.libreria.logica;
 
-public interface elementoBibliotecarioInterfaz {
+public interface ElementoBibliotecarioInterfaz {
     void imprimir();
     boolean prestamoElementos(int cantidad);
     void agregarElementos(int cantidad);

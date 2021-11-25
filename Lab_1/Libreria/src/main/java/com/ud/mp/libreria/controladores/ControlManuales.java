@@ -4,10 +4,10 @@ import java.util.List;
 import com.ud.mp.libreria.logica.Manual;
 import java.util.ArrayList;
 
-public class controlManuales extends ControladorGenerico<Manual>{
+public class ControlManuales extends ControladorGenerico<Manual>{
     private List<Manual> manuales;
 
-    public controlManuales() {
+    public ControlManuales() {
         manuales = new ArrayList<>();
         manuales.add(new Manual("Calculadora", "USA", manuales.size(), "Calculadora", 2, "Casio", 2001));
         manuales.add(new Manual("Impresora", "Japon", manuales.size(), "Impresora HP", 3, "HP", 2002));

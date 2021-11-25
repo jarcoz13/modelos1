@@ -4,10 +4,10 @@ import com.ud.mp.libreria.logica.Libro;
 import java.util.ArrayList;
 import java.util.List;
 
-public class controlLibros extends ControladorGenerico<Libro>{
+public class ControlLibros extends ControladorGenerico<Libro>{
     private List<Libro> libros;
 
-    public controlLibros() {
+    public ControlLibros() {
         this.libros = new ArrayList<>();
         
         //new Libro(editorial, libros.size(), title, stock, author, fechaPub)

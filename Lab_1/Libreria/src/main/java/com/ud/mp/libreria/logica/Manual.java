@@ -1,6 +1,6 @@
 package com.ud.mp.libreria.logica;
 
-public class Manual extends elementoBibliotecario{
+public class Manual extends ElementoBibliotecario{
     private String dispositivo;
     private String hechoEn;
 

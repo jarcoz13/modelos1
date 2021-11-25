@@ -13,9 +13,9 @@ import java.util.List;
  *
  * @author Usuario
  */
-public class controlRevistas extends ControladorGenerico<Revista> {
+public class ControlRevistas extends ControladorGenerico<Revista> {
     private List<Revista> revistas;
-    public controlRevistas() {
+    public ControlRevistas() {
         this.revistas = new ArrayList<>();
         revistas.add(new Revista("USA", "Salud", revistas.size(), "Rio Grande Review", 10, "Universidad de Texas", 1981));
         revistas.add(new Revista("España", "Esoterico", revistas.size(), "Enigma", 20, "ANONIMO", 1995));

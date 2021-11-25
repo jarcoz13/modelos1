@@ -1,7 +1,7 @@
 
 package com.ud.mp.libreria.logica;
 
-public class Revista extends elementoBibliotecario{
+public class Revista extends ElementoBibliotecario{
     private String pais;
     private String categoria;
 
