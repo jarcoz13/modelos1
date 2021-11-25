@@ -8,6 +8,7 @@ public interface ControladorGenericoInterface <T> {
     void listarTodo();
     void agregarNuevoElemento(String title, int stock, String author, int anio);
     
+    boolean prestamoElementos(String titulo, String autor, int cantidad);
     boolean devolverElementos(String titulo, String autor, int cantidad);
     boolean retirarElemento(String titulo, String autor);
     

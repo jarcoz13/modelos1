@@ -42,11 +42,18 @@ public class controlLibros extends ControladorGenerico<Libro>{
         super.agregarNuevoElemento(new Libro(getElements().size(),title, stock, author, anio));
     }
 
+    
+    @Override
+    public boolean prestamoElementos(String titulo, String autor, int cantidad){
+        Libro libro = obtenerElemento(titulo, autor);
+        return libro.prestamoElementos(cantidad);
+    }
+    
     @Override
     public boolean devolverElementos(String titulo, String autor, int cantidad) {
         Libro libro = obtenerElemento(titulo, autor);
         if(libro != null){
-            System.out.println(this.toString() + " devuelto. \nTitúlo: " + titulo + ".");
+            System.out.println("Libro devuelto. \nTitúlo: " + titulo + ".");
             libro.agregarElementos(cantidad);
             return true;
         } else {

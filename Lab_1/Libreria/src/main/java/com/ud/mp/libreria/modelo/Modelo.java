@@ -171,6 +171,10 @@ public class Modelo {
         manejadorManuales.agregarNuevoElemento(dispositivo, pais, datos[0], Integer.parseInt(datos[3]), datos[1], Integer.parseInt(datos[2]));
     }
     
+    private void pedirLibro(){
+        manejadorLibros.obtenerElemento(title, autor)
+    }
+    
     private String obtenerTitulo(){
         System.out.println("Ingrese el titúlo del objeto: ");
         return sc.nextLine();

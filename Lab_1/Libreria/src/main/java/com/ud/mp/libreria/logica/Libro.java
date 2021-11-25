@@ -31,7 +31,7 @@ public class Libro extends elementoBibliotecario {
     @Override
     public boolean prestamoElementos(int cantidad) {
         if(cantidad >= super.getInventario()){
-            System.out.println("Se pidieron " + cantidad + " "+ this.toString() +"s del ejemplar " + super.getTitulo());
+            System.out.println("Se pidieron " + cantidad + " de "+ this.toString() +"s del ejemplar " + super.getTitulo());
             super.setInventario(getInventario()- cantidad);
             System.out.println("Quedaron " + super.getInventario() + " ejemplares ");
             return true;
