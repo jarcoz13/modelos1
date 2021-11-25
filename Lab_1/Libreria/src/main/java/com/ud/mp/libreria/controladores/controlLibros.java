@@ -45,7 +45,12 @@ public class controlLibros extends ControladorGenerico<Libro>{
     @Override
     public boolean prestamoElementos(String titulo, String autor, int cantidad){
         Libro libro = obtenerElemento(titulo, autor);
-        return libro.prestamoElementos(cantidad);
+        if(libro != null){
+           return libro.prestamoElementos(cantidad); 
+       } else {
+            System.out.println("No existe el libro: "+ titulo);
+            return false;
+        } 
     }
     
     @Override

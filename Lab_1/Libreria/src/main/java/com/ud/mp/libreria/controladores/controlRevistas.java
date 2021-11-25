@@ -46,7 +46,7 @@ public class controlRevistas extends ControladorGenerico<Revista> {
     public boolean devolverElementos(String titulo, String autor, int cantidad) {
         Revista revista = obtenerElemento(titulo, autor);
         if(revista != null){
-            System.out.println("Revista devuelta. \nTitúlo: " + titulo + ".");
+            System.out.println("Revista devuelta. \nTítulo: " + titulo + ".");
             revista.agregarElementos(cantidad);
             return true;
         } else {
@@ -59,11 +59,11 @@ public class controlRevistas extends ControladorGenerico<Revista> {
     public boolean retirarElemento(String titulo, String autor) {
         Revista revista = obtenerElemento(titulo, autor);
         if(revista != null){
-            System.out.println("Revista retirado.\nTitúlo: " + titulo + ".");
+            System.out.println("Revista retirado.\nTítulo: " + titulo + ".");
             super.retirarElemento(revista);
             return true;
         } else {
-            System.out.println("NO tenemos la revista en nuestro inventario.\nTitúlo: " + titulo + ".");
+            System.out.println("NO tenemos la revista en nuestro inventario.\nTítulo: " + titulo + ".");
             return false;
         }
              
@@ -86,5 +86,16 @@ public class controlRevistas extends ControladorGenerico<Revista> {
                 revista.imprimir();
             }
         }
+    }
+
+    @Override
+    public boolean prestamoElementos(String titulo, String autor, int cantidad) {
+     Revista revista = obtenerElemento(titulo, autor);
+        if(revista != null){
+           return revista.prestamoElementos(cantidad); 
+       } else {
+            System.out.println("No existe la revista: "+ titulo);
+            return false;
+        } 
     }
 }

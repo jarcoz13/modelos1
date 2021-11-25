@@ -38,10 +38,10 @@ public class controlManuales extends ControladorGenerico<Manual>{
 
     @Override
     public boolean devolverElementos(String titulo, String autor, int cantidad) {
-        Manual libro = obtenerElemento(titulo, autor);
-        if(libro != null){
+        Manual manual = obtenerElemento(titulo, autor);
+        if(manual != null){
             System.out.println("Manual devuelto. \nTitúlo: " + titulo + ".");
-            libro.agregarElementos(cantidad);
+            manual.agregarElementos(cantidad);
             return true;
         } else {
             System.out.println("Verfica que el libro sea de nuestra biblioteca.");
@@ -51,13 +51,13 @@ public class controlManuales extends ControladorGenerico<Manual>{
 
     @Override
     public boolean retirarElemento(String titulo, String autor) {
-        Manual libro = obtenerElemento(titulo, autor);
-        if(libro != null){
-            System.out.println("Manual retirado.\nTitúlo: " + titulo + ".");
-            super.retirarElemento(libro);
+        Manual manual = obtenerElemento(titulo, autor);
+        if(manual != null){
+            System.out.println("Manual retirado.\nTítulo: " + titulo + ".");
+            super.retirarElemento(manual);
             return true;
         } else {
-            System.out.println("NO tenemos el manual en nuestro inventario.\nTitúlo: " + titulo + ".");
+            System.out.println("NO tenemos el manual en nuestro inventario.\nTítulo: " + titulo + ".");
             return false;
         }
              
@@ -80,5 +80,16 @@ public class controlManuales extends ControladorGenerico<Manual>{
                 manual.imprimir();
             }
         }
+    }
+
+    @Override
+    public boolean prestamoElementos(String titulo, String autor, int cantidad) {
+        Manual manual = obtenerElemento(titulo, autor);
+        if(manual != null){
+           return manual.prestamoElementos(cantidad); 
+        } else {
+            System.out.println("No existe el manual: "+ titulo);
+            return false;
+        } 
     }
 }

@@ -194,12 +194,7 @@ public class Modelo {
                 Integer.parseInt(datos[2])
         );
     }
-    
-    private void pedirLibro(){
-        
-        manejadorLibros.prestamoElementos(obtenerTitulo(), obtenerTitulo(), cantidad);
-    }
-    
+       
     private String obtenerTitulo(){
         System.out.println("Ingrese el titúlo del objeto: ");
         return sc.nextLine();
@@ -207,6 +202,29 @@ public class Modelo {
     private String obtenerAutor(){
         System.out.println("Ingrese el nombre del autor del objeto: ");
         return sc.nextLine();
+    }
+    
+    
+    private void pedirLibro(){
+        int cantidad = 0;
+        System.out.println("Ingrese la cantidad de libros a retirar: ");
+        cantidad = Integer.parseInt(sc.nextLine());
+        manejadorLibros.prestamoElementos(obtenerTitulo(), obtenerAutor(), cantidad);
+    }
+
+    private void pedirRevista() {
+        int cantidad=0;
+        System.out.println("Ingrese la cantidad de revistas a retirar: ");
+        cantidad = Integer.parseInt(sc.nextLine());
+        manejadorRevistas.prestamoElementos(obtenerTitulo(), obtenerAutor(), cantidad);
+    }
+
+    private void pedirManual() {
+        int cantidad=0;
+        System.out.println("Ingrese la cantidad de manuales a retirar: ");
+        cantidad = Integer.parseInt(sc.nextLine());
+        manejadorManuales.prestamoElementos(obtenerTitulo(), obtenerAutor(), cantidad);
+        
     }
     
 }
