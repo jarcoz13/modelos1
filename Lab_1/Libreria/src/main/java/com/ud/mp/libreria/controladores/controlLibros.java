@@ -42,7 +42,6 @@ public class controlLibros extends ControladorGenerico<Libro>{
         super.agregarNuevoElemento(new Libro(getElements().size(),title, stock, author, anio));
     }
 
-    
     @Override
     public boolean prestamoElementos(String titulo, String autor, int cantidad){
         Libro libro = obtenerElemento(titulo, autor);
