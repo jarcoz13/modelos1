@@ -206,25 +206,20 @@ public class Modelo {
     
     
     private void pedirLibro(){
-        int cantidad = 0;
         System.out.println("Ingrese la cantidad de libros a retirar: ");
-        cantidad = Integer.parseInt(sc.nextLine());
+        int cantidad = Integer.parseInt(sc.nextLine());
         manejadorLibros.prestamoElementos(obtenerTitulo(), obtenerAutor(), cantidad);
     }
 
     private void pedirRevista() {
-        int cantidad=0;
         System.out.println("Ingrese la cantidad de revistas a retirar: ");
-        cantidad = Integer.parseInt(sc.nextLine());
+        int cantidad = Integer.parseInt(sc.nextLine());
         manejadorRevistas.prestamoElementos(obtenerTitulo(), obtenerAutor(), cantidad);
     }
 
     private void pedirManual() {
-        int cantidad=0;
         System.out.println("Ingrese la cantidad de manuales a retirar: ");
-        cantidad = Integer.parseInt(sc.nextLine());
+        int cantidad = Integer.parseInt(sc.nextLine());
         manejadorManuales.prestamoElementos(obtenerTitulo(), obtenerAutor(), cantidad);
-        
     }
-    
 }
