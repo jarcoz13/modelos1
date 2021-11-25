@@ -11,7 +11,7 @@ public abstract class ControladorGenerico<T> implements ControladorGenericoInter
             System.out.println("Se agrego el elemento");
             getElements().add(element);
         } else {
-            System.out.println("Ya existia el elemento");
+            System.out.println("Ya existe el elemento");
         }
     }
     public boolean retirarElemento(T element) {

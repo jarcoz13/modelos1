@@ -52,7 +52,7 @@ public class controlLibros extends ControladorGenerico<Libro>{
     public boolean devolverElementos(String titulo, String autor, int cantidad) {
         Libro libro = obtenerElemento(titulo, autor);
         if(libro != null){
-            System.out.println("Libro devuelto. \nTitúlo: " + titulo + ".");
+            System.out.println("Libro devuelto. \nTítulo: " + titulo + ".");
             libro.agregarElementos(cantidad);
             return true;
         } else {
@@ -65,7 +65,7 @@ public class controlLibros extends ControladorGenerico<Libro>{
     public boolean retirarElemento(String titulo, String autor) {
         Libro libro = obtenerElemento(titulo, autor);
         if(libro != null){
-            System.out.println("Libro retirado.\nTitúlo: " + titulo + ".");
+            System.out.println("Libro retirado.\nTítulo: " + titulo + ".");
             super.retirarElemento(libro);
             return true;
         } else {
