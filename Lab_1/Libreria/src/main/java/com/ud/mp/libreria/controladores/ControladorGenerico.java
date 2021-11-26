@@ -1,11 +1,8 @@
 package com.ud.mp.libreria.controladores;
 
-import java.util.List;
-
 public abstract class ControladorGenerico<T> implements ControladorGenericoInterface<T>{
-    @Override
-    public abstract List<T> getElements();    
     
+    @Override
     public void agregarNuevoElemento(T element) {
         if(!getElements().contains(element)) {
             System.out.println("Se agrego el elemento");
@@ -14,6 +11,8 @@ public abstract class ControladorGenerico<T> implements ControladorGenericoInter
             System.out.println("Ya existe el elemento");
         }
     }
+    
+    @Override
     public boolean retirarElemento(T element) {
         if(getElements().contains(element)) {
             System.out.println("Eliminando elemento");

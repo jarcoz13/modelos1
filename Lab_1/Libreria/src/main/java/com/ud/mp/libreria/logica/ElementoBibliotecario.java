@@ -15,38 +15,47 @@ public abstract class ElementoBibliotecario implements ElementoBibliotecarioInte
         this.anio = anio;
     }
 
+    @Override
     public int getId() {
         return id;
     }
     
+    @Override
     public String getTitulo() {
         return titulo;
     }
 
+    @Override
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
 
+    @Override
     public int getInventario() {
         return inventario;
     }
 
+    @Override
     public void setInventario(int inventario) {
         this.inventario = inventario;
     }
 
+    @Override
     public String getAutor() {
         return autor;
     }
 
+    @Override
     public void setAutor(String autor) {
         this.autor = autor;
     }
 
+    @Override
     public int getAnio() {
         return anio;
     }
 
+    @Override
     public void setAnio(int anio) {
         this.anio = anio;
     }
