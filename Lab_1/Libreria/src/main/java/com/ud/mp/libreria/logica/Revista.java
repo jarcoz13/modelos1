@@ -1,29 +1,39 @@
 
 package com.ud.mp.libreria.logica;
 /**
- * Hereda de la clase padre "Elemento Bibliotecario"
- *  *@param pais
-    * @param categoria
-    * @param id
-    * @param title
-    * @param stock
-    * @param author 
-    * @param year
-    * 
-        * @param id
-        * @param title
-        * @param stock
-        * @param author
-        * @param anio
+ * Clase Revista.
+ * Hereda de la clase padre "Elemento Bibliotecario".
 */
 public class Revista extends ElementoBibliotecario{
+    /**
+     * País de la revista.
+     */
     private String pais;
+    /**
+     * Categoria de la revista.
+     */
     private String categoria;
-
+/**
+ * Constructor basico de una revista.
+ * @param id
+ * @param title
+ * @param stock
+ * @param author
+ * @param anio 
+ */
     public Revista(int id, String title, int stock, String author, int anio) {
         super(id, title, stock, author, anio);
     }
-
+/**
+ * Constructor completo de una revista.
+ * @param pais
+ * @param categoria
+ * @param id
+ * @param title
+ * @param stock
+ * @param author
+ * @param year 
+ */
     public Revista(String pais, String categoria, int id, String title, int stock, String author, int year) {
         super(id, title, stock, author, year);
         this.pais = pais;
@@ -37,6 +47,7 @@ public class Revista extends ElementoBibliotecario{
     }
     /**
     *Asigna el país al que corresponde la revista
+     * @param pais
     */
     public void setPais(String pais) {
         this.pais = pais;
@@ -49,6 +60,7 @@ public class Revista extends ElementoBibliotecario{
     }
     /**
     *Asigna la categoría de la revista
+     * @param categoria
     */
     public void setCategoria(String categoria) {
         this.categoria = categoria;
