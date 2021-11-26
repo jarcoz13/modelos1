@@ -16,4 +16,4 @@ La aplicación busca modelar la implementacion de una biblioteca que cuenta con 
 
 
 # Laboratorio_1
-![](DiegramaLibreria.svg?display=inline-block) 
+![](DiagramaLibreria.svg?display=inline-block) 
