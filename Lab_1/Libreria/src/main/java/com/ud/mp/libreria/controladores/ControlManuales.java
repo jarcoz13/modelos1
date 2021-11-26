@@ -4,7 +4,17 @@ import java.util.List;
 import com.ud.mp.libreria.logica.Manual;
 import java.util.ArrayList;
 
+/**
+ *  Clase con el manejo de todos los manuales. 
+ * Crea, quita obtiene e imprime manuales.
+ * @author Jose Cortazar
+ * @author Mabel Rojas
+ * @author Andres Martin
+ */
 public class ControlManuales extends ControladorGenerico<Manual>{
+    /**
+     * Lista con todos los manuales.
+     */
     private List<Manual> manuales;
 
     public ControlManuales() {
@@ -27,6 +37,15 @@ public class ControlManuales extends ControladorGenerico<Manual>{
         });
     }
     
+    /**
+     * Agregar nuevo Manual a la lista incluyendo sus atributos especiales(dispositivo y pais).
+     * @param dispositvo del nuevo manual.
+     * @param pais del nuevo manual.
+     * @param title del nuevo manual.
+     * @param stock del nuevo manual.
+     * @param author del nuevo manual.
+     * @param anio del nuevo manual.
+     */
     public void agregarNuevoElemento(String dispositvo, String pais, String title, int stock, String author, int anio) {
         super.agregarNuevoElemento(new Manual(dispositvo, pais, getElements().size(),title, stock, author, anio));
     }

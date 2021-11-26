@@ -4,7 +4,17 @@ import com.ud.mp.libreria.logica.Libro;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *  Clase con el manejo de todos los libros. 
+ * Crea, quita obtiene e imprime libros.
+ * @author Jose Cortazar
+ * @author Mabel Rojas
+ * @author Andres Martin
+ */
 public class ControlLibros extends ControladorGenerico<Libro>{
+    /**
+     * Lista con todos los libros.
+     */
     private List<Libro> libros;
 
     public ControlLibros() {
@@ -33,6 +43,14 @@ public class ControlLibros extends ControladorGenerico<Libro>{
             book.imprimir();
     }
     
+    /**
+     * Agregar nuevo Libro a la lista incluyendo su atributo especial(editorial).
+     * @param title
+     * @param author
+     * @param stock
+     * @param anio
+     * @param editorial 
+     */
     public void agregarNuevoElemento( String title, String author, int stock, int anio, String editorial) {
         super.agregarNuevoElemento(new Libro(editorial, getElements().size(),title, stock, author, anio));
     }

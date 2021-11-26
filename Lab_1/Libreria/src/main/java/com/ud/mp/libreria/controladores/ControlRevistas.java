@@ -10,11 +10,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
- * @author Usuario
+ *  Clase con el manejo de todas las revistas. 
+ * Crea, quita obtiene e imprime revistas.
+ * @author Jose Cortazar
+ * @author Mabel Rojas
+ * @author Andres Martin
  */
 public class ControlRevistas extends ControladorGenerico<Revista> {
+    /**
+     * Lista con todas las revistas.
+     */
     private List<Revista> revistas;
+    
     public ControlRevistas() {
         this.revistas = new ArrayList<>();
         revistas.add(new Revista("USA", "Salud", revistas.size(), "Rio Grande Review", 10, "Universidad de Texas", 1981));
@@ -33,6 +40,15 @@ public class ControlRevistas extends ControladorGenerico<Revista> {
         });
     }
     
+    /**
+     * Agregar nuevo elemento incluyendo los atributos especiales de la Revista.
+     * @param pais de la nueva revista.
+     * @param categoria de la nueva revista.
+     * @param title lo de la nueva revista.
+     * @param author de la nueva revista.
+     * @param stock de la nueva revista.
+     * @param anio de la nueva revista.
+     */
     public void agregarNuevoElemento( String pais, String categoria, String title, String author, int stock, int anio) {
         super.agregarNuevoElemento(new Revista(pais, categoria, getElements().size(), title, stock, author, anio));
     }
