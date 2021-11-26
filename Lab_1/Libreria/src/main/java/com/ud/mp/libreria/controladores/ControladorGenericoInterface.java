@@ -1,7 +1,12 @@
 package com.ud.mp.libreria.controladores;
 
 import java.util.List;
-
+/**
+ *  Interfaz con las funciones principales de todos los controladores. 
+ * @author Jose Cortazar
+ * @author Mabel Rojas
+ * @author Andres Martin
+ */
 public interface ControladorGenericoInterface <T> {
     /**
      * Obtener lista con los elementos.
