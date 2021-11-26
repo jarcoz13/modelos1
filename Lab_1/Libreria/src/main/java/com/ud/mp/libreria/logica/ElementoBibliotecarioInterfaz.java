@@ -49,15 +49,23 @@ public interface ElementoBibliotecarioInterfaz {
      */
     void setInventario(int inventario);
     /**
-     * Cambia el Autor del elemento.
+     * Obtiene el Autor del elemento.
      * @return String 
      */
     String getAutor();
     /**
-     * 
+     * Cambia el Autor del elemento.
      * @param autor 
      */
     void setAutor(String autor);
+    /**
+     * Obtiene el año de publicación del elemento.
+     * @return int
+     */
     int getAnio();
+    /**
+     * Cambia el año de publicación del elemento.
+     * @param anio 
+     */
     void setAnio(int anio);
 }
