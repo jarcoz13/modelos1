@@ -12,7 +12,6 @@ package ironman.logica.partes;
 public class CascoConvencional extends Casco {
     public CascoConvencional(){
         super();
-        super.obtenerCaracteristicas().add("Energía nuclear");
     }
 
     @Override

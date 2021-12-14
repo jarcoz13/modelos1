@@ -9,7 +9,7 @@ package ironman.logica.partes;
  *
  * @author NATHALIA
  */
-public class CascoNivel1 extends Casco {
+public class CascoNivel1 extends CascoConvencional {
     public CascoNivel1(){
         super();
         super.obtenerCaracteristicas().add("Energía nuclear");
@@ -17,7 +17,7 @@ public class CascoNivel1 extends Casco {
 
     @Override
     void operacion() {
-        System.out.println("Creando casco convencional"); 
+        System.out.println("Creando casco Nivel 1"); 
     }
     
 }
