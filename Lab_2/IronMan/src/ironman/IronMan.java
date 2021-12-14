@@ -2,9 +2,9 @@ package ironman;
 
 /**
  *
- * @author Alejandro Cortázar. Cod:20181020022
- * @author Andrés Martín. Cod:202010201237
- * @author Nathalia Rojas. Cod: 20201020124
+ * @author Alejandro Cortázar.  Cod: 20181020022
+ * @author Andrés Martín.       Cod: 20201020137
+ * @author Nathalia Rojas.      Cod: 20201020124
  */
 public class IronMan {
     /**

@@ -1,14 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ironman.logica.partes;
+
 import java.util.ArrayList;
 import java.util.List;
+
 /**
  *
- * @author NATHALIA
+ * @author Alejandro Cortázar.  Cod: 20181020022
+ * @author Andrés Martín.       Cod: 20201020137
+ * @author Nathalia Rojas.      Cod: 20201020124
  */
 public abstract class Casco{
     private List<String> caracteristicas;
