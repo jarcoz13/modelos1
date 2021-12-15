@@ -1,15 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ironman.logica.partes;
 
 /**
  *
- * @author NATHALIA
+ * @author Alejandro Cortázar.  Cod: 20181020022
+ * @author Andrés Martín.       Cod: 20201020137
+ * @author Nathalia Rojas.      Cod: 20201020124
  */
-public class CascoNivel3 extends Casco {
+public class CascoNivel3 extends CascoNivel2 {
     public CascoNivel3(){
         super();
         super.obtenerCaracteristicas().add("Energía nuclear");
