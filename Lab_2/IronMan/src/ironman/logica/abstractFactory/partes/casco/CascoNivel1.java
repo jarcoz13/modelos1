@@ -1,4 +1,4 @@
-package ironman.logica.partes;
+package ironman.logica.abstractFactory.partes.casco;
 
 /**
  *
@@ -13,8 +13,7 @@ public class CascoNivel1 extends CascoConvencional {
     }
 
     @Override
-    void operacion() {
-        System.out.println("Creando casco Nivel 1"); 
+    public String operacion() {
+        return "Creando casco Nivel 1"; 
     }
-    
 }

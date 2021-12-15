@@ -1,6 +1,6 @@
-package ironman.logica;
+package ironman.logica.abstractFactory.fabricas;
 
-import ironman.logica.partes.Casco;
+import ironman.logica.abstractFactory.partes.casco.Casco;
 
 /**
  *
