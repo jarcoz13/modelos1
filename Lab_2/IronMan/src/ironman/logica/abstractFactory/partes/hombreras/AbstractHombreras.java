@@ -1,4 +1,4 @@
-package ironman.logica.partes;
+package ironman.logica.abstractFactory.partes.hombreras;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,18 +9,14 @@ import java.util.List;
  * @author Andrés Martín.       Cod: 20201020137
  * @author Nathalia Rojas.      Cod: 20201020124
  */
-public abstract class Casco{
+public abstract class AbstractHombreras implements InterfaceHombreras {
     private List<String> caracteristicas;
 
-    public Casco () {
+    public AbstractHombreras() {
         caracteristicas = new ArrayList<>();
-        caracteristicas.add("Mascara");
-        caracteristicas.add("Protector cerebral");        
     }
-   
-    abstract void operacion();
+
     public List <String> obtenerCaracteristicas(){
-    return caracteristicas;
+        return caracteristicas;
     }
-    
 }

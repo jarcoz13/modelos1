@@ -1,4 +1,4 @@
-package ironman.logica.partes;
+package ironman.logica.abstractFactory.partes.guantes;
 
 /**
  *
@@ -6,14 +6,13 @@ package ironman.logica.partes;
  * @author Andrés Martín.       Cod: 20201020137
  * @author Nathalia Rojas.      Cod: 20201020124
  */
-public class CascoConvencional extends Casco {
-    public CascoConvencional(){
+public class GuantesNivel2 extends GuantesNivel1 {
+    public GuantesNivel2(){
         super();
     }
 
     @Override
-    void operacion() {
-        System.out.println("Creando casco convencional"); 
+    public String operacion() {
+        return "Creando guante Nivel 2";
     }
-    
 }
