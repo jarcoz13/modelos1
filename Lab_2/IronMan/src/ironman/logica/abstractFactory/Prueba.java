@@ -3,11 +3,24 @@ package ironman.logica.abstractFactory;
 import java.util.Scanner;
 
 import ironman.logica.abstractFactory.fabricas.*;
-import ironman.logica.abstractFactory.partes.casco.Casco;
+import ironman.logica.abstractFactory.partes.botas.AbstractBotas;
+import ironman.logica.abstractFactory.partes.casco.AbstractCasco;
+import ironman.logica.abstractFactory.partes.guantes.AbstractGuantes;
+import ironman.logica.abstractFactory.partes.hombreras.AbstractHombreras;
+import ironman.logica.abstractFactory.partes.peto.AbstractPeto;
+import ironman.logica.abstractFactory.partes.yelmo.AbstractYelmo;
 
 public class Prueba {
+    
     public FabricaAbstracta fabrica;
-    public Casco casco;
+    
+    public AbstractCasco casco;
+    public AbstractYelmo yelmo;
+    public AbstractHombreras hombreras;
+    public AbstractBotas botas;
+    public AbstractGuantes guantes;
+    public AbstractPeto peto;
+
     public Scanner sc;
     public int opcion = 0;
 
@@ -38,6 +51,21 @@ public class Prueba {
 
         casco = fabrica.crearCasco();
         System.out.println(casco.operacion());
+
+        botas = fabrica.crearBotas();
+        System.out.println(botas.operacion());
+
+        hombreras = fabrica.crearHombreras();
+        System.out.println(hombreras.operacion());
+
+        peto = fabrica.crearPeto();
+        System.out.println(peto.operacion());
+
+        yelmo = fabrica.crearYelmo();
+        System.out.println(yelmo.operacion());
+
+        guantes = fabrica.crearGuantes();
+        System.out.println(guantes.operacion());
     }
     public static void main(String[] args) {
         new Prueba().proceso();

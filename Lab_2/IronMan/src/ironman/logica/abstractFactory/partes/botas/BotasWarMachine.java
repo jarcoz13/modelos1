@@ -1,7 +1,7 @@
-package ironman.logica.abstractFactory.partes.casco;
+package ironman.logica.abstractFactory.partes.botas;
 
-public class CascoWarMachine extends CascoNivel3 {
-    public CascoWarMachine(){
+public class BotasWarMachine extends BotasNivel3 {
+    public BotasWarMachine(){
         super();
         super.obtenerCaracteristicas().add("Material reforzado");
     }

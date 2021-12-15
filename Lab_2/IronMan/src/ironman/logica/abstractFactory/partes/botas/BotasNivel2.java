@@ -1,8 +1,8 @@
-package ironman.logica.abstractFactory.partes.casco;
+package ironman.logica.abstractFactory.partes.botas;
 
 
-public class CascoNivel2 extends CascoNivel1 {
-    public CascoNivel2(){
+public class BotasNivel2 extends BotasNivel1 {
+    public BotasNivel2(){
         super();
         super.obtenerCaracteristicas().add("Sistemas de micro engranajes");
         super.obtenerCaracteristicas().add("Sistemas de microelectrónica básica");
@@ -10,6 +10,6 @@ public class CascoNivel2 extends CascoNivel1 {
 
     @Override
     public String operacion() {
-        return "Creando casco Nivel 2";
+        return "Creando botas Nivel 2";
     }
 }

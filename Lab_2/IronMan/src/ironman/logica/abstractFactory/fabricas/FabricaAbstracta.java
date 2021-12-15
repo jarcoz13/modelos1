@@ -1,6 +1,11 @@
 package ironman.logica.abstractFactory.fabricas;
 
-import ironman.logica.abstractFactory.partes.casco.Casco;
+import ironman.logica.abstractFactory.partes.botas.AbstractBotas;
+import ironman.logica.abstractFactory.partes.casco.AbstractCasco;
+import ironman.logica.abstractFactory.partes.guantes.AbstractGuantes;
+import ironman.logica.abstractFactory.partes.hombreras.AbstractHombreras;
+import ironman.logica.abstractFactory.partes.peto.AbstractPeto;
+import ironman.logica.abstractFactory.partes.yelmo.AbstractYelmo;
 
 /**
  *
@@ -10,7 +15,15 @@ import ironman.logica.abstractFactory.partes.casco.Casco;
  */
 public interface FabricaAbstracta {
     
-    public Casco crearCasco();
+    public AbstractCasco crearCasco();
     
-    
+    public AbstractYelmo crearYelmo();
+
+    public AbstractHombreras crearHombreras();
+
+    public AbstractPeto crearPeto();
+
+    public AbstractGuantes crearGuantes();
+
+    public AbstractBotas crearBotas();
 }

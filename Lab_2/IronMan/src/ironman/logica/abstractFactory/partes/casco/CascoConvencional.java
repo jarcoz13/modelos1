@@ -6,9 +6,11 @@ package ironman.logica.abstractFactory.partes.casco;
  * @author Andrés Martín.       Cod: 20201020137
  * @author Nathalia Rojas.      Cod: 20201020124
  */
-public class CascoConvencional extends Casco {
+public class CascoConvencional extends AbstractCasco {
     public CascoConvencional(){
         super();
+        obtenerCaracteristicas().add("Mascara");
+        obtenerCaracteristicas().add("Protector cerebral");    
     }
 
     @Override
