@@ -1,19 +1,25 @@
 package ironman.presentacion;
 
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JTextField;
+
 
 
 /**
  *
- * 
- * 
- * 
  */
-public class vistaPedir extends javax.swing.JFrame {
-   /**
+public class VistaPedir extends javax.swing.JFrame {
+    private Modelo modelo;
+    private Controlador control;
+    /**
      * Creates new form vistaPedir
+     * @param modelo
      */
-    public vistaPedir() {
+    public VistaPedir(Modelo modelo) {
+        this.modelo = modelo;
         initComponents();
+        agregarEventos();
     }
 
     /**
@@ -35,11 +41,11 @@ public class vistaPedir extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
         jRadioButton7 = new javax.swing.JRadioButton();
         jPanel2 = new javax.swing.JPanel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        jcArmaduras = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        jtCantidad = new javax.swing.JTextField();
+        jbMostrar = new javax.swing.JButton();
 
         jPanel1.setBorder(new javax.swing.border.MatteBorder(null));
 
@@ -119,14 +125,14 @@ public class vistaPedir extends javax.swing.JFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mark I", "Mark II", "Mark III", "War Machine" }));
+        jcArmaduras.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mark I", "Mark II", "Mark III", "War Machine" }));
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Elija su armardura");
 
         jLabel3.setText("Elija la cantidad que desea");
 
-        jButton1.setText("Mostrar");
+        jbMostrar.setText("Mostrar");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -140,11 +146,11 @@ public class vistaPedir extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jcArmaduras, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
-                                .addComponent(jButton1)))))
+                                .addComponent(jbMostrar)))))
                 .addGap(67, 67, 67))
         );
         jPanel2Layout.setVerticalGroup(
@@ -153,13 +159,13 @@ public class vistaPedir extends javax.swing.JFrame {
                 .addGap(35, 35, 35)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jcArmaduras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(jbMostrar)
                 .addContainerGap())
         );
 
@@ -182,13 +188,29 @@ public class vistaPedir extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    
+    public JButton getJbMostrar() {
+        return jbMostrar;
+    }
+    
+    public Controlador getControl(){
+        if(control == null){
+            control = new Controlador(modelo);
+        }
+        return control;
+    }
 
+    public JComboBox<String> getJcArmaduras() {
+        return jcArmaduras;
+    }
+
+    public JTextField getJtCantidad() {
+        return jtCantidad;
+    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -200,6 +222,12 @@ public class vistaPedir extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton5;
     private javax.swing.JRadioButton jRadioButton6;
     private javax.swing.JRadioButton jRadioButton7;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JButton jbMostrar;
+    private javax.swing.JComboBox<String> jcArmaduras;
+    private javax.swing.JTextField jtCantidad;
     // End of variables declaration//GEN-END:variables
+
+    private void agregarEventos() {
+        getJbMostrar().addActionListener(getControl());
+    }
 }

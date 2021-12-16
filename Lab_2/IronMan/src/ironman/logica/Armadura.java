@@ -21,19 +21,19 @@ public class Armadura {
      */
     public Armadura(int tipoArmadura) {
         switch(tipoArmadura){
-            case 1:
+            case 0:
                 nombreArmadura = "Mark 1";
                 fabrica = new FabricaMark1();
                 break;
-            case 2:
+            case 1:
                 nombreArmadura = "Mark 2";
                 fabrica = new FabricaMark2();
                 break;
-            case 3:
+            case 2:
                 nombreArmadura = "Mark 3";
                 fabrica = new FabricaMark3();
                 break;
-            case 4:
+            case 3:
                 nombreArmadura = "War Machine";
                 fabrica = new FabricaWarMachine();
                 break;

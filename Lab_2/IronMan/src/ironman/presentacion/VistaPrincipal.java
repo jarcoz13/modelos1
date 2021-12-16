@@ -3,23 +3,29 @@ import java.awt.Graphics;
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 /**
  *
  * 
  * 
  * 
  */
-public class vistaPrincipal extends javax.swing.JFrame {
+public class VistaPrincipal extends javax.swing.JFrame {
+    private Modelo modelo;
     private Graphics gTraje;
     private Graphics gElemento;
     
     /**
      * Creates new form vistaPrincipal
      */
-    public vistaPrincipal() {
+    public VistaPrincipal(Modelo modelo) {
+        this.modelo = modelo;
         initComponents();
         gTraje = jpTraje.getGraphics();
         gElemento = jpElemento.getGraphics();
+        
+        putElemento("imagenes\\BotasWarMachine.jpg");
+        putTraje("D:\\Workspace\\UD\\modelos1\\Lab_2\\IronMan\\src\\ironman\\presentacion\\imagenes\\Mark1.jpg");
     }
 
     /**
@@ -93,7 +99,7 @@ public class vistaPrincipal extends javax.swing.JFrame {
             .addGroup(jpTrajeLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(322, Short.MAX_VALUE))
         );
 
         jpElemento.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -147,15 +153,16 @@ public class vistaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     
     public void putTraje(String ruta){
-        Image fig = new ImageIcon(ruta).getImage();
-        fig = fig.getScaledInstance(100, 100, 1);
-        gTraje.drawImage(fig, 30, 100, jpTraje);
+        ImageIcon fig = new ImageIcon(ruta);
+        JLabel etiqueta = new JLabel(fig);
+        jpTraje.add(etiqueta);
+        //gTraje.drawImage(fig, 30, 100, 100, 100, jpTraje);
     }
 
     public void putElemento(String rutaElemento){
         Image fig = new ImageIcon(rutaElemento).getImage();
-        fig = fig.getScaledInstance(100, 100, 1);
-        gElemento.drawImage(fig, 30, 100, jpElemento);
+        //fig = fig.getScaledInstance(100, 100, 1);
+        gElemento.drawImage(fig, 30, 30, 100, 100, jpElemento);
     }
 
     public void agregarLinea(String texto){

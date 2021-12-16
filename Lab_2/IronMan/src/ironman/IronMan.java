@@ -1,6 +1,6 @@
 package ironman;
 
-import ironman.logica.Prueba;
+import ironman.presentacion.Modelo;
 
 /**
  *  Clase principal
@@ -13,6 +13,6 @@ public class IronMan {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        new Prueba().proceso();
+        new Modelo();
     }
 }
