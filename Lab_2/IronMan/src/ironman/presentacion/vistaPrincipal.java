@@ -1,5 +1,8 @@
 package ironman.presentacion;
+import java.awt.Graphics;
+import java.awt.Image;
 
+import javax.swing.ImageIcon;
 /**
  *
  * 
@@ -7,12 +10,16 @@ package ironman.presentacion;
  * 
  */
 public class vistaPrincipal extends javax.swing.JFrame {
-
+    private Graphics gTraje;
+    private Graphics gElemento;
+    
     /**
      * Creates new form vistaPrincipal
      */
     public vistaPrincipal() {
         initComponents();
+        gTraje = jpTraje.getGraphics();
+        gElemento = jpElemento.getGraphics();
     }
 
     /**
@@ -26,10 +33,10 @@ public class vistaPrincipal extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jPanel3 = new javax.swing.JPanel();
+        textCaracteristicas = new javax.swing.JTextArea();
+        jpTraje = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
+        jpElemento = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -38,9 +45,12 @@ public class vistaPrincipal extends javax.swing.JFrame {
 
         jLabel3.setText("Caracteristicas");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        textCaracteristicas.setColumns(20);
+        textCaracteristicas.setLineWrap(true);
+        textCaracteristicas.setRows(5);
+        textCaracteristicas.setTabSize(4);
+        textCaracteristicas.setEnabled(false);
+        jScrollPane1.setViewportView(textCaracteristicas);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -65,43 +75,43 @@ public class vistaPrincipal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jpTraje.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel2.setText("Traje");
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout jpTrajeLayout = new javax.swing.GroupLayout(jpTraje);
+        jpTraje.setLayout(jpTrajeLayout);
+        jpTrajeLayout.setHorizontalGroup(
+            jpTrajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpTrajeLayout.createSequentialGroup()
                 .addGap(58, 58, 58)
                 .addComponent(jLabel2)
                 .addContainerGap(72, Short.MAX_VALUE))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        jpTrajeLayout.setVerticalGroup(
+            jpTrajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpTrajeLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jpElemento.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel1.setText("Objeto");
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        javax.swing.GroupLayout jpElementoLayout = new javax.swing.GroupLayout(jpElemento);
+        jpElemento.setLayout(jpElementoLayout);
+        jpElementoLayout.setHorizontalGroup(
+            jpElementoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpElementoLayout.createSequentialGroup()
                 .addGap(89, 89, 89)
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        jpElementoLayout.setVerticalGroup(
+            jpElementoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpElementoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addContainerGap(124, Short.MAX_VALUE))
@@ -113,11 +123,11 @@ public class vistaPrincipal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jpTraje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jpElemento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -128,22 +138,38 @@ public class vistaPrincipal extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jpElemento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jpTraje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    
+    public void putTraje(String ruta){
+        Image fig = new ImageIcon(ruta).getImage();
+        fig = fig.getScaledInstance(100, 100, 1);
+        gTraje.drawImage(fig, 30, 100, jpTraje);
+    }
+
+    public void putElemento(String rutaElemento){
+        Image fig = new ImageIcon(rutaElemento).getImage();
+        fig = fig.getScaledInstance(100, 100, 1);
+        gElemento.drawImage(fig, 30, 100, jpElemento);
+    }
+
+    public void agregarLinea(String texto){
+        textCaracteristicas.append(texto);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JPanel jpElemento;
+    private javax.swing.JPanel jpTraje;
+    private javax.swing.JTextArea textCaracteristicas;
     // End of variables declaration//GEN-END:variables
 }

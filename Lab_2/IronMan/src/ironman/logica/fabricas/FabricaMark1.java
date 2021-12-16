@@ -1,17 +1,14 @@
 package ironman.logica.fabricas;
 
 import ironman.logica.partes.botas.AbstractBotas;
-import ironman.logica.partes.botas.BotasConvencionales;
+import ironman.logica.partes.botas.BotasNivel1;
 import ironman.logica.partes.casco.AbstractCasco;
-import ironman.logica.partes.casco.CascoConvencional;
+import ironman.logica.partes.casco.CascoNivel1;
 import ironman.logica.partes.guantes.AbstractGuantes;
-import ironman.logica.partes.guantes.GuantesConvencionales;
-import ironman.logica.partes.hombreras.AbstractHombreras;
-import ironman.logica.partes.hombreras.HombrerasConvencionales;
+import ironman.logica.partes.guantes.GuantesNivel1;
 import ironman.logica.partes.peto.AbstractPeto;
-import ironman.logica.partes.peto.PetoConvencional;
-import ironman.logica.partes.yelmo.AbstractYelmo;
-import ironman.logica.partes.yelmo.YelmoConvencional;
+import ironman.logica.partes.peto.PetoNivel1;
+
 
 /**
  *
@@ -20,31 +17,21 @@ import ironman.logica.partes.yelmo.YelmoConvencional;
 public class FabricaMark1 implements FabricaAbstracta {
     @Override
     public AbstractCasco crearCasco() {
-        return new CascoConvencional();
+        return new CascoNivel1();
     }
-
-    @Override
-    public AbstractHombreras crearHombreras() {
-        return new HombrerasConvencionales();
-    }
-
+    
     @Override
     public AbstractPeto crearPeto() {
-        return new PetoConvencional();
+        return new PetoNivel1();
     }
 
     @Override
     public AbstractGuantes crearGuantes() {
-        return new GuantesConvencionales();
+        return new GuantesNivel1();
     }
 
     @Override
     public AbstractBotas crearBotas() {
-        return new BotasConvencionales();
-    }
-
-    @Override
-    public AbstractYelmo crearYelmo() {
-        return new YelmoConvencional();
+        return new BotasNivel1();
     }
 }
