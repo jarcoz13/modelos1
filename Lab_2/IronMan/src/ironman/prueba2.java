@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ironman.presentacion;
+package ironman;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;

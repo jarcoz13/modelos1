@@ -12,8 +12,6 @@ import ironman.logica.partes.peto.AbstractPeto;
 public interface FabricaAbstracta {
     
     public AbstractCasco crearCasco();
-    
-
 
     public AbstractPeto crearPeto();
 

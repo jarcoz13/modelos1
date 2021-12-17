@@ -5,6 +5,7 @@ public class BotasNivel1 extends BotasConvencionales  {
     public BotasNivel1(){
         super();
         obtenerCaracteristicas().add("Energía nuclear");
+        obtenerCaracteristicas().add("Dispositivo de vuelo no asitido");
     }
 
     @Override
