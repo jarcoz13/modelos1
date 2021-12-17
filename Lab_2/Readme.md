@@ -22,5 +22,10 @@ donde se busca evolucionar la armadura por tecnologias o componentes segun la cr
 las evoluciones se dearrollan de acuerdo a las diferentes tecnologias 
 
 ## 1. Evolucion
-Sistema atomico Micro REactor de Convustion como fuetne de alimentacion
+Sistema atomico Micro Reactor de Combustion como fuente de alimentación
+
+
+SeUtiliza un patron de programacion Abstrac Factory , como sistema de generaicon de armaduras
+
+posteriormente, para la gneracion de unidades se utiliza el Patron de progrmacion Builder
 
