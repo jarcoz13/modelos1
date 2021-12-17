@@ -132,6 +132,12 @@ public class VistaPedir extends javax.swing.JFrame {
 
         jLabel3.setText("Elija la cantidad que desea");
 
+        jtCantidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtCantidadActionPerformed(evt);
+            }
+        });
+
         jbMostrar.setText("Mostrar");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -188,6 +194,10 @@ public class VistaPedir extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jtCantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtCantidadActionPerformed
+       
+    }//GEN-LAST:event_jtCantidadActionPerformed
     
     public JButton getJbMostrar() {
         return jbMostrar;

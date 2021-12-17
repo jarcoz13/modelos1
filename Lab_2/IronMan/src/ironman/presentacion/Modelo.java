@@ -38,9 +38,10 @@ public class Modelo {
         int caso = getVistaPedir().getJcArmaduras().getSelectedIndex();
         try{
             cantidad = Integer.parseInt(getVistaPedir().getJtCantidad().getText());
-            getVistaPedir().setVisible(false);
-            getVistaPrincipal().setVisible(true);
-            
+            if(cantidad<=0)
+                getVistaPedir().setVisible(false);
+                getVistaPrincipal().setVisible(true);
+
             
         }catch(NumberFormatException NFE){
             JOptionPane.showMessageDialog(vistaPedir, "Ingrese un número");
