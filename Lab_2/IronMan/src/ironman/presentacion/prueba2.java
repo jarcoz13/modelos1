@@ -17,6 +17,7 @@ import java.awt.event.ActionListener;
 class prueba2 implements ActionListener  {
     public static void main(String[] args) {
         new prueba2();
+        sout
     }
     JComboBox<String> menu = new JComboBox<>();
     Graphics g;
