@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ironman.presentacion;
+package ironman;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -17,7 +17,6 @@ import java.awt.event.ActionListener;
 class prueba2 implements ActionListener  {
     public static void main(String[] args) {
         new prueba2();
-        sout
     }
     JComboBox<String> menu = new JComboBox<>();
     Graphics g;
