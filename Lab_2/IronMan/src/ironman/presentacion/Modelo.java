@@ -12,23 +12,23 @@ import javax.swing.JOptionPane;
  * @author Usuario
  */
 public class Modelo {
-    private VistaPedir vistaPedir;
-    private VistaPrincipal vistaPrincipal;
+    private VistaInicial vistaPedir;
+    private VistaCaracteristicas vistaPrincipal;
     
     public Modelo(){
         getVistaPedir().setVisible(true);
     }
 
-    public VistaPedir getVistaPedir() {
+    public VistaInicial getVistaPedir() {
         if(vistaPedir == null){
-            vistaPedir = new VistaPedir(this);
+            vistaPedir = new VistaInicial(this);
         }
         return vistaPedir;
     }
 
-    public VistaPrincipal getVistaPrincipal() {
+    public VistaCaracteristicas getVistaPrincipal() {
         if(vistaPrincipal == null){
-            vistaPrincipal = new VistaPrincipal(this);
+            vistaPrincipal = new VistaCaracteristicas(this);
         }
         return vistaPrincipal;
     }
@@ -39,8 +39,14 @@ public class Modelo {
         try{
             cantidad = Integer.parseInt(getVistaPedir().getJtCantidad().getText());
             if(cantidad<=0)
+            {
+                JOptionPane
+            }
+            
+            else{
                 getVistaPedir().setVisible(false);
                 getVistaPrincipal().setVisible(true);
+            }
 
             
         }catch(NumberFormatException NFE){
