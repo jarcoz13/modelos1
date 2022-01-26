@@ -1,5 +1,6 @@
 package ironman.logica.partes.peto;
 
+import ironman.logica.partes.ParteArmadura;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,7 +10,7 @@ import java.util.List;
  * 
  * 
  */
-public abstract class AbstractPeto implements InterfacePeto {
+public abstract class AbstractPeto extends ParteArmadura implements InterfacePeto {
     private List<String> caracteristicas;
 
     public AbstractPeto() {
