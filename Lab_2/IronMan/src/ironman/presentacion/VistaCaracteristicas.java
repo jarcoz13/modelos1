@@ -120,19 +120,11 @@ public class VistaCaracteristicas extends javax.swing.JFrame {
         jpImgArmadura.setLayout(jpImgArmaduraLayout);
         jpImgArmaduraLayout.setHorizontalGroup(
             jpImgArmaduraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-<<<<<<< HEAD
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jpImgArmaduraLayout.setVerticalGroup(
-            jpImgArmaduraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-=======
             .addComponent(lblImgTraje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jpImgArmaduraLayout.setVerticalGroup(
             jpImgArmaduraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(lblImgTraje, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
->>>>>>> 36242e8e6d6417d457a354976206c6a2e7f033ba
         );
 
         javax.swing.GroupLayout jpTrajeLayout = new javax.swing.GroupLayout(jpTraje);
@@ -165,11 +157,7 @@ public class VistaCaracteristicas extends javax.swing.JFrame {
                     .addComponent(lblCantidad, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-<<<<<<< HEAD
-                .addComponent(jpImgArmadura, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-=======
                 .addComponent(jpImgArmadura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
->>>>>>> 36242e8e6d6417d457a354976206c6a2e7f033ba
                 .addContainerGap())
         );
 
@@ -186,19 +174,11 @@ public class VistaCaracteristicas extends javax.swing.JFrame {
         jpImgElemento.setLayout(jpImgElementoLayout);
         jpImgElementoLayout.setHorizontalGroup(
             jpImgElementoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-<<<<<<< HEAD
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jpImgElementoLayout.setVerticalGroup(
-            jpImgElementoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 201, Short.MAX_VALUE)
-=======
             .addComponent(lblImgObjeto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jpImgElementoLayout.setVerticalGroup(
             jpImgElementoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(lblImgObjeto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
->>>>>>> 36242e8e6d6417d457a354976206c6a2e7f033ba
         );
 
         javax.swing.GroupLayout jpElementoLayout = new javax.swing.GroupLayout(jpElemento);
