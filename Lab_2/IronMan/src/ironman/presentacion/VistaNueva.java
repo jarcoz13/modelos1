@@ -14,6 +14,7 @@ import javax.swing.JTextArea;
  */
 public class VistaNueva extends javax.swing.JFrame {
     private final String carpetaImagenes = "src\\ironman\\presentacion\\imagenes\\";
+    private final String formato = ".png";
     private int numArmadura, cantidadArmaduras;
 
     private Modelo modelo;
@@ -260,9 +261,9 @@ public class VistaNueva extends javax.swing.JFrame {
 
     public void ponerMiniaturas(int cantidad){
         this.cantidadArmaduras = cantidad;
-        String rutaMiniaturaTraje = carpetaImagenes + obtenerNombreArmadura() + ".jpg";
+        String rutaMiniaturaTraje = carpetaImagenes + obtenerNombreArmadura() + formato;
 
-//carpetaImagenes + "Mini" + obtenerNombreArmadura() + ".jpg"; 
+//carpetaImagenes + "Mini" + obtenerNombreArmadura() + formato; 
         ImageIcon fig = new ImageIcon(rutaMiniaturaTraje);
         int numeroReplicas = 0;
         for (int j = 0; j < 8; j++)
@@ -281,7 +282,7 @@ public class VistaNueva extends javax.swing.JFrame {
     }
     
     public void ponerTraje() {
-        String rutaImgTraje = carpetaImagenes + obtenerNombreArmadura() + ".jpg";
+        String rutaImgTraje = carpetaImagenes + obtenerNombreArmadura() + formato;
         
         ImageIcon fig = new ImageIcon(rutaImgTraje);
         lblImgArmadura.setIcon(fig);
@@ -334,7 +335,7 @@ public class VistaNueva extends javax.swing.JFrame {
                 rutaElemento += "Botas";
                 break;
         }
-        rutaElemento += obtenerNombreArmadura() + ".jpg";
+        rutaElemento += obtenerNombreArmadura() + formato;
         return rutaElemento;
     }
     
