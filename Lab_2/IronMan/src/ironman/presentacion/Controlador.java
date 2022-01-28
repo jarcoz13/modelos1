@@ -18,5 +18,5 @@ public class Controlador implements ActionListener {
             modelo.mostrarCaracteristicas();
         }
     }
-
+    
 }
