@@ -52,12 +52,10 @@ public class Modelo {
             if (cantidad <= 0) {
                 JOptionPane.showMessageDialog(null,
                         "El valor es inferior o igual a cero.\nPor favor ingrese otro valor.");
-                return;
             } else if(cantidad > 24){
                 JOptionPane.showMessageDialog(null,
                         "La capacidad maxima de la fabrica son 24 armaduras.\nPor favor ingrese otro valor.");
                 getVistaPedir().getJtCantidad().setText("");
-                return;
             } else {
                 switch (numArmadura) {
                     case 1:
@@ -130,7 +128,7 @@ public class Modelo {
         }
     }
 
-    void regresarVistaInicial() {
+    public void regresarVistaInicial() {
         getVistaNueva().setVisible(false);
         getVistaPedir().setVisible(true);
     }

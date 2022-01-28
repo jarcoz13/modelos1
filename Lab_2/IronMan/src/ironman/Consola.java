@@ -73,8 +73,5 @@ public class Consola {
             System.out.println("\t" + caracteristica);
         }
     }
-
-    public static void main(String[] args) {
-        new Consola().proceso();
-    }
+    
 }

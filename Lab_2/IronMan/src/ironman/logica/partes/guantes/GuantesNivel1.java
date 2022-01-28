@@ -8,8 +8,8 @@ public class GuantesNivel1 extends GuantesConvencionales {
     public GuantesNivel1() {
         super();
         super.obtenerCaracteristicas().add("Sistema hermetico de armado");
-        super.obtenerCaracteristicas().add("Sistema hermetico de armado");
-        super.obtenerCaracteristicas().add("Sistema hermetico de armado");
+//        super.obtenerCaracteristicas().add("Sistema hermetico de armado");
+//        super.obtenerCaracteristicas().add("Sistema hermetico de armado");
     }
 
     @Override

@@ -275,14 +275,13 @@ public class VistaNueva extends javax.swing.JFrame {
 
     public void ponerMiniaturas(int cantidad){
         this.cantidadArmaduras = cantidad;
-        String rutaMiniaturaTraje = carpetaImagenes + "Mini" + obtenerNombreArmadura() + formato; 
-        ImageIcon fig = new ImageIcon(rutaMiniaturaTraje);
+        ImageIcon fig = new ImageIcon(carpetaImagenes + "Mini" + obtenerNombreArmadura() + formato);
         int numeroReplicas = 0;
         jpMiniaturas.getGraphics().clearRect(0, 0, 4000, 4000);
         for (int j = 0; j < 8; j++)
             for (int i = 0; i < 3; i++) {
-                if(miniaturas[i][j] != null)
-                    miniaturas[i][j].setText("");
+//                if(miniaturas[i][j] != null)
+//                    miniaturas[i][j].setText("");
                 miniaturas[i][j] = new JLabel();
                 jpMiniaturas.add(miniaturas[i][j]);
                 miniaturas[i][j].setBounds(i*75, j*75, 60, 60);

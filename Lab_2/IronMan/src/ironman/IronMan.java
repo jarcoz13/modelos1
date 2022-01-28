@@ -14,7 +14,7 @@ public class IronMan {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        new Modelo();
-        // new Consola().proceso();
+        Modelo miApp = new Modelo();
+        miApp.start();
     }
 }

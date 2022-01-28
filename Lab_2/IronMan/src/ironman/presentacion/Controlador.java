@@ -48,6 +48,8 @@ public class Controlador implements ActionListener, MouseListener {
     }
 
     @Override
-    public void mouseExited(MouseEvent me) { }
+    public void mouseExited(MouseEvent me) { 
+        modelo.mostrarCaracteristicas(5);
+    }
 
 }
