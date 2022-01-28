@@ -29,3 +29,7 @@ SeUtiliza un patron de programacion Abstrac Factory , como sistema de generaicon
 
 posteriormente, para la gneracion de unidades se utiliza el Patron de progrmacion Builder
 
+
+# Laboratorio_2
+![](ironman_universe_diagram_class.svg?display=inline-block) 
+
