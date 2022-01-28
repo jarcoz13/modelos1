@@ -42,6 +42,8 @@ public class Controlador implements ActionListener, MouseListener {
             modelo.mostrarCaracteristicas(3);
         } else if(me.getSource().equals(modelo.getVistaNueva().getLblElemento4())){
             modelo.mostrarCaracteristicas(4);
+        } else {
+            modelo.mostrarCaracteristicas(5);
         }
     }
 
