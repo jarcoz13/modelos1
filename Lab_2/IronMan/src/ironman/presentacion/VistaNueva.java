@@ -1,12 +1,9 @@
 package ironman.presentacion;
 
-import java.awt.Graphics;
-import java.awt.Image;
 
 import javax.swing.ImageIcon;
-import javax.swing.JComboBox;
+import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
 /**
@@ -16,8 +13,8 @@ import javax.swing.JTextArea;
  * 
  */
 public class VistaNueva extends javax.swing.JFrame {
-    private String carpetaImagenes = "src\\ironman\\presentacion\\imagenes\\";
-    private int numArmadura;
+    private final String carpetaImagenes = "src\\ironman\\presentacion\\imagenes\\";
+    private int numArmadura, cantidadArmaduras;
 
     private Modelo modelo;
 
@@ -26,17 +23,20 @@ public class VistaNueva extends javax.swing.JFrame {
      */
     public VistaNueva(Modelo modelo) {
         this.modelo = modelo;
+        
+        miniaturas = new JLabel[3][8];
         initComponents();
 
         agregarEventos();
     }
 
     private void agregarEventos() {
-//        lblImgArmadura.addMouseListener(modelo.getVistaPedir().getControl());
-//        lblElemento1.addMouseListener(modelo.getVistaPedir().getControl());
-//        lblElemento2.addMouseListener(modelo.getVistaPedir().getControl());
-//        lblElemento3.addMouseListener(modelo.getVistaPedir().getControl());
-//        lblElemento4.addMouseListener(modelo.getVistaPedir().getControl());
+        jbRegresar.addActionListener(modelo.getVistaPedir().getControl());
+        lblImgArmadura.addMouseListener(modelo.getVistaPedir().getControl());
+        lblElemento1.addMouseListener(modelo.getVistaPedir().getControl());
+        lblElemento2.addMouseListener(modelo.getVistaPedir().getControl());
+        lblElemento3.addMouseListener(modelo.getVistaPedir().getControl());
+        lblElemento4.addMouseListener(modelo.getVistaPedir().getControl());
     }
 
     /**
@@ -59,18 +59,20 @@ public class VistaNueva extends javax.swing.JFrame {
         lblCantidad = new javax.swing.JLabel();
         jpElemento = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jpMiniaturas = new javax.swing.JPanel();
         lblImgArmadura = new javax.swing.JLabel();
         lblElemento1 = new javax.swing.JLabel();
         lblElemento2 = new javax.swing.JLabel();
         lblElemento3 = new javax.swing.JLabel();
         lblElemento4 = new javax.swing.JLabel();
+        jbRegresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jpDescripcion.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel3.setText("Caracteristicas");
+        jLabel3.setText("Características");
 
         jtaCaracteristicas.setColumns(20);
         jtaCaracteristicas.setLineWrap(true);
@@ -85,12 +87,10 @@ public class VistaNueva extends javax.swing.JFrame {
             jpDescripcionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpDescripcionLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
+                .addGroup(jpDescripcionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
-            .addGroup(jpDescripcionLayout.createSequentialGroup()
-                .addGap(77, 77, 77)
-                .addComponent(jLabel3)
-                .addContainerGap(65, Short.MAX_VALUE))
         );
         jpDescripcionLayout.setVerticalGroup(
             jpDescripcionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -98,7 +98,7 @@ public class VistaNueva extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 321, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -150,21 +150,36 @@ public class VistaNueva extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Replicas");
 
+        javax.swing.GroupLayout jpMiniaturasLayout = new javax.swing.GroupLayout(jpMiniaturas);
+        jpMiniaturas.setLayout(jpMiniaturasLayout);
+        jpMiniaturasLayout.setHorizontalGroup(
+            jpMiniaturasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jpMiniaturasLayout.setVerticalGroup(
+            jpMiniaturasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout jpElementoLayout = new javax.swing.GroupLayout(jpElemento);
         jpElemento.setLayout(jpElementoLayout);
         jpElementoLayout.setHorizontalGroup(
             jpElementoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpElementoLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jLabel1)
-                .addContainerGap(152, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpElementoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jpElementoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jpMiniaturas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jpElementoLayout.setVerticalGroup(
             jpElementoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpElementoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jpMiniaturas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         lblImgArmadura.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -182,59 +197,90 @@ public class VistaNueva extends javax.swing.JFrame {
         lblElemento4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblElemento4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jbRegresar.setText("Regresar");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblImgArmadura, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblElemento3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblElemento4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jpDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblElemento1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblElemento2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
-                        .addComponent(jpElemento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jbRegresar)
+                        .addGap(138, 138, 138)
+                        .addComponent(jpTraje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(221, 221, 221)
-                        .addComponent(jpTraje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(lblImgArmadura, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(17, 17, 17)
+                                .addComponent(jpDescripcion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(18, 18, 18))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblElemento1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblElemento3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(46, 46, 46)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblElemento2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblElemento4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(50, 50, 50)))
+                        .addComponent(jpElemento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jpTraje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jpTraje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jbRegresar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jpDescripcion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jpDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblElemento1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblElemento2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblElemento3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblElemento4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(lblImgArmadura, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jpElemento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jpElemento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblImgArmadura, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void putTraje() {
+    public void ponerMiniaturas(int cantidad){
+        this.cantidadArmaduras = cantidad;
+        String rutaMiniaturaTraje = carpetaImagenes + obtenerNombreArmadura() + ".jpg";
+
+//carpetaImagenes + "Mini" + obtenerNombreArmadura() + ".jpg"; 
+        ImageIcon fig = new ImageIcon(rutaMiniaturaTraje);
+        int numeroReplicas = 0;
+        for (int j = 0; j < 8; j++)
+            for (int i = 0; i < 3; i++) {
+                miniaturas[i][j] = new JLabel();
+                jpMiniaturas.add(miniaturas[i][j]);
+                miniaturas[i][j].setBounds(i*75, j*75, 60, 60);
+
+                miniaturas[i][j].setIcon(fig);
+                
+                numeroReplicas++;
+                
+                if(numeroReplicas == cantidad)
+                    return;
+            }
+    }
+    
+    public void ponerTraje() {
         String rutaImgTraje = carpetaImagenes + obtenerNombreArmadura() + ".jpg";
         
         ImageIcon fig = new ImageIcon(rutaImgTraje);
@@ -255,9 +301,25 @@ public class VistaNueva extends javax.swing.JFrame {
                 return "";
         }
     }
-
-    public void putElemento(int numElemento) {
-        String rutaElemento = carpetaImagenes;
+    public void ponerElementos(){
+        ImageIcon fig;
+                
+        fig = new ImageIcon(obtenerRutaElemento(1));
+        lblElemento1.setIcon(fig);
+        
+        fig = new ImageIcon(obtenerRutaElemento(2));
+        lblElemento2.setIcon(fig);
+     
+        fig = new ImageIcon(obtenerRutaElemento(3));
+        lblElemento3.setIcon(fig);
+        
+        fig = new ImageIcon(obtenerRutaElemento(4));
+        lblElemento4.setIcon(fig);
+    }
+    
+    private String obtenerRutaElemento(int numElemento){
+        String rutaElemento = carpetaImagenes ;
+        
         switch (numElemento) {
             case 1:
                 rutaElemento += "Casco";
@@ -273,12 +335,11 @@ public class VistaNueva extends javax.swing.JFrame {
                 break;
         }
         rutaElemento += obtenerNombreArmadura() + ".jpg";
-        
-        ImageIcon fig = new ImageIcon(rutaElemento);
-        lblElemento4.setIcon(fig);
+        return rutaElemento;
     }
+    
 
-    public void agregarLinea(String texto) {
+    public void escribirLinea(boolean agregar, String texto) {
         jtaCaracteristicas.append(texto);
     }
 
@@ -302,14 +363,28 @@ public class VistaNueva extends javax.swing.JFrame {
                 lblNombreTraje.setText("War Machine");
                 break;
         }
-        putTraje();
+        ponerTraje();
+        ponerElementos();
+        
     }
 
     public JLabel getLblImgArmadura() {
         return lblImgArmadura;
     }
-    
-    public JLabel getLblImgElemento() {
+
+    public JLabel getLblElemento1() {
+        return lblElemento1;
+    }
+
+    public JLabel getLblElemento2() {
+        return lblElemento2;
+    }
+
+    public JLabel getLblElemento3() {
+        return lblElemento3;
+    }
+
+    public JLabel getLblElemento4() {
         return lblElemento4;
     }
     
@@ -317,14 +392,21 @@ public class VistaNueva extends javax.swing.JFrame {
         return lblCantidad;
     }
 
+    public JButton getJbRegresar() {
+        return jbRegresar;
+    }
+    
+    private javax.swing.JLabel [][] miniaturas;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton jbRegresar;
     private javax.swing.JPanel jpDescripcion;
     private javax.swing.JPanel jpElemento;
+    private javax.swing.JPanel jpMiniaturas;
     private javax.swing.JPanel jpTraje;
     private javax.swing.JTextArea jtaCaracteristicas;
     private javax.swing.JLabel lblCantidad;

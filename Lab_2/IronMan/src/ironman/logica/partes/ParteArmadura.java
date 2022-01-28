@@ -8,7 +8,7 @@ public class ParteArmadura {
     private int salud;
     private int danio;
     private int defensa;
-
+    
     public int getSalud() {
         return salud;
     }

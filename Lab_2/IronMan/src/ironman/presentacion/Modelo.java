@@ -14,7 +14,7 @@ import ironman.logica.CreadorArmadura;
  */
 public class Modelo {
     private VistaInicial vistaPedir;
-    private VistaCaracteristicas vistaPrincipal;
+    private VistaNueva vistaPrincipal;
     private List<Armadura> armaduras;// lista parar gnerar una armadura
     private String tipoArmadura;
 
@@ -30,9 +30,9 @@ public class Modelo {
         return vistaPedir;
     }
 
-    public VistaCaracteristicas getVistaPrincipal() {
+    public VistaNueva getVistaNueva() {
         if (vistaPrincipal == null) {
-            vistaPrincipal = new VistaCaracteristicas(this);
+            vistaPrincipal = new VistaNueva(this);
         }
         return vistaPrincipal;
     }
@@ -41,11 +41,12 @@ public class Modelo {
         int cantidad;
         int numArmadura = getVistaPedir().getJcArmaduras().getSelectedIndex();
         try {
-            cantidad = Integer.parseInt(getVistaPedir().getJtCantidad().getText());
             if (numArmadura == 0) {
                 JOptionPane.showMessageDialog(null, "Por favor seleccione una armadura.");
                 return;
-            } else if (cantidad <= 0) {
+            }
+            cantidad = Integer.parseInt(getVistaPedir().getJtCantidad().getText());
+            if (cantidad <= 0) {
                 JOptionPane.showMessageDialog(null,
                         "El valor es inferior o igual a cero.\nPor favor ingrese otro valor.");
                 return;
@@ -69,51 +70,53 @@ public class Modelo {
                     armaduras.add(creadorArmadura.retrieveArmadura(tipoArmadura));
                 }
 
-                getVistaPrincipal().agregarLinea("Nombre de la armadura " + armaduras.get(0).getNombreArmadura());
+                getVistaNueva().escribirLinea(false, "Nombre de la armadura " + armaduras.get(0).getNombreArmadura());
                 mostrarCaracteristicas("Casco", armaduras.get(0).getCasco().obtenerCaracteristicas());
                 mostrarCaracteristicas("Botas", armaduras.get(0).getBotas().obtenerCaracteristicas());
                 mostrarCaracteristicas("Peto", armaduras.get(0).getPeto().obtenerCaracteristicas());
                 mostrarCaracteristicas("Guantes", armaduras.get(0).getGuantes().obtenerCaracteristicas());
 
                 getVistaPedir().setVisible(false);
-                getVistaPrincipal().setNumArmadura(numArmadura);
-                getVistaPrincipal().getLblCantidad().setText(cantidad + "");
-                getVistaPrincipal().setVisible(true);
+                getVistaNueva().setNumArmadura(numArmadura);
+                getVistaNueva().getLblCantidad().setText(cantidad + "");
+                getVistaNueva().ponerMiniaturas(cantidad);
+                getVistaNueva().setVisible(true);
             }
         } catch (NumberFormatException NFE) {
             JOptionPane.showMessageDialog(vistaPedir, "Ingrese un número");
         }
     }
 
-    public void mostrarCaracteristicas() {
-        getVistaPrincipal().getJtaCaracteristicas().setText("");
-        switch (getVistaPrincipal().getjComboBox1().getSelectedIndex()) {
+    public void mostrarCaracteristicas(int elemento) {
+        getVistaNueva().getJtaCaracteristicas().setText("");
+        switch (elemento) {
             case 0:
-                JOptionPane.showMessageDialog(null, "Seleccione un elemento.");
+                
                 break;
             case 1:
                 mostrarCaracteristicas("Casco", armaduras.get(0).getCasco().obtenerCaracteristicas());
-                getVistaPrincipal().putElemento(1);
                 break;
             case 2:
                 mostrarCaracteristicas("Peto", armaduras.get(0).getPeto().obtenerCaracteristicas());
-                getVistaPrincipal().putElemento(2);
                 break;
             case 3:
                 mostrarCaracteristicas("Guantes", armaduras.get(0).getGuantes().obtenerCaracteristicas());
-                getVistaPrincipal().putElemento(3);
                 break;
             case 4:
                 mostrarCaracteristicas("Botas", armaduras.get(0).getBotas().obtenerCaracteristicas());
-                getVistaPrincipal().putElemento(4);
                 break;
         }
     }
 
     private void mostrarCaracteristicas(String tipo, List<String> caracteristicas) {
-        getVistaPrincipal().agregarLinea("\nCaracteristicas de " + tipo);
+        getVistaNueva().escribirLinea(false, "Características de " + tipo);
         for (String caracteristica : caracteristicas) {
-            getVistaPrincipal().agregarLinea("\n\t" + caracteristica);
+            getVistaNueva().escribirLinea(true, "\n\t" + caracteristica);
         }
+    }
+
+    void regresarVistaInicial() {
+        getVistaNueva().setVisible(false);
+        getVistaPedir().setVisible(true);
     }
 }
