@@ -15,7 +15,9 @@ public class Armadura implements Cloneable {
     private AbstractPeto peto;
 
     /**
-     * 
+     * El constructor "Armadura" pide como parámetro el tipo de armadura asignada con un
+     * diferente número
+     * @param tipoArmadura
      */
     public Armadura(int tipoArmadura) {
         switch (tipoArmadura) {
@@ -37,7 +39,9 @@ public class Armadura implements Cloneable {
                 break;
         }
     }
-
+/**
+ * Método para la creación de las partes del tipo de armadura
+ */
     public void crearPartes() {
         casco = fabrica.crearCasco();
 
@@ -48,7 +52,9 @@ public class Armadura implements Cloneable {
         botas = fabrica.crearBotas();
 
     }
-
+/**
+ * Método que describe el paso a paso del programa
+ */
     public void creacionPartesVerbose() {
         System.out.println("Creando armadura " + nombreArmadura);
 

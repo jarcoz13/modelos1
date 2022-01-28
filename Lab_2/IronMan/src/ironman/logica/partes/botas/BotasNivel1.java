@@ -2,6 +2,9 @@ package ironman.logica.partes.botas;
 
 
 public class BotasNivel1 extends BotasConvencionales  {
+    /**
+ * Constructor de Botas Nivel 1
+ */
     public BotasNivel1(){
         super();
         obtenerCaracteristicas().add("Energía nuclear");

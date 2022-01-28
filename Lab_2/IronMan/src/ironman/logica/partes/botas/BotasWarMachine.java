@@ -1,6 +1,9 @@
 package ironman.logica.partes.botas;
 
 public class BotasWarMachine extends BotasNivel3 {
+/**
+ * Constructor de Botas War Machine 
+ */
     public BotasWarMachine() {
         super();
         super.obtenerCaracteristicas().add("Sistema hermetico de armado");

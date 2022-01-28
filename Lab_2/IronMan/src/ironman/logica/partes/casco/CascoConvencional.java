@@ -1,10 +1,9 @@
 package ironman.logica.partes.casco;
 
-/**
- *
- * 
- */
 public class CascoConvencional extends AbstractCasco {
+/**
+ * Constructor de Casco Convencional
+ */
     public CascoConvencional(){
         super();
         obtenerCaracteristicas().add("Mascara");

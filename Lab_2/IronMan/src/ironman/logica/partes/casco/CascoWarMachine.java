@@ -1,6 +1,9 @@
 package ironman.logica.partes.casco;
 
 public class CascoWarMachine extends CascoNivel3 {
+/**
+ * Constructor de Casco War Machine
+ */
     public CascoWarMachine() {
         super();
         super.obtenerCaracteristicas().add("Material reforzado");

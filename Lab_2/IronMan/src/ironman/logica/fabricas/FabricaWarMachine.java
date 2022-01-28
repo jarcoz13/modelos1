@@ -10,8 +10,7 @@ import ironman.logica.partes.peto.AbstractPeto;
 import ironman.logica.partes.peto.PetoWarMachine;
 
 /**
- *
- * 
+ *La clase "Fabrica War Machine"  se encarga de la creción de los elementos de dicho traje
  */
 public class FabricaWarMachine implements FabricaAbstracta {
     @Override

@@ -1,6 +1,9 @@
 package ironman.logica.partes.casco;
 
 public class CascoNivel1 extends CascoConvencional {
+/**
+ * Constructor de Casco Nivel 1 
+ */
     public CascoNivel1() {
         super();
         super.obtenerCaracteristicas().add("Energía nuclear");

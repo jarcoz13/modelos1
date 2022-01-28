@@ -1,12 +1,9 @@
 package ironman.logica.partes.casco;
 
-/**
- *
- * 
- * 
- * 
- */
 public class CascoNivel3 extends CascoNivel2 {
+    /**
+ * Constructor de Casco Nivel 3 
+ */
     public CascoNivel3(){
         super();
         super.obtenerCaracteristicas().add("Sistemas de iluminación interna");

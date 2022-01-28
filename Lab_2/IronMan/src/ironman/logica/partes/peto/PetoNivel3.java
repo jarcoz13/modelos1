@@ -1,12 +1,10 @@
 package ironman.logica.partes.peto;
 
-/**
- *
- * 
- * 
- * 
- */
+
 public class PetoNivel3 extends PetoNivel2 {
+/**
+ * Constructor de Peto Nivel 3 
+ */
     public PetoNivel3(){
         super();
     }

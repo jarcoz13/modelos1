@@ -11,8 +11,7 @@ import ironman.logica.partes.peto.PetoNivel1;
 
 
 /**
- *
- * 
+ *La clase "Fabrica Mark 1"  se encarga de la creción de los elementos de dicho traje
  */
 public class FabricaMark1 implements FabricaAbstracta {
     @Override

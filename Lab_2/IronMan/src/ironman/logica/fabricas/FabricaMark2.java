@@ -9,6 +9,9 @@ import ironman.logica.partes.guantes.GuantesNivel2;
 import ironman.logica.partes.peto.AbstractPeto;
 import ironman.logica.partes.peto.PetoNivel2;
 
+/**
+ *La clase "Fabrica Mark 2"  se encarga de la creción de los elementos de dicho traje
+ */
 public class FabricaMark2 implements FabricaAbstracta {
     @Override
     public AbstractCasco crearCasco() {

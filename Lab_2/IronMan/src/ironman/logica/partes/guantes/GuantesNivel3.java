@@ -1,10 +1,10 @@
 package ironman.logica.partes.guantes;
 
-/**
- *
- * 
- */
+
 public class GuantesNivel3 extends GuantesNivel2 {
+/**
+ * Constructor de Guantes Nivel 3 
+ */
     public GuantesNivel3(){
         super();
     }

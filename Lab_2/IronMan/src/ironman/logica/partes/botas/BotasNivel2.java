@@ -2,6 +2,9 @@ package ironman.logica.partes.botas;
 
 
 public class BotasNivel2 extends BotasNivel1 {
+/**
+ * Constructor de Botas Nivel 2
+ */
     public BotasNivel2(){
         super();
         super.obtenerCaracteristicas().add("Sistemas de micro engranajes para armado de las botas");

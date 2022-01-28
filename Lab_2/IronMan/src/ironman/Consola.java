@@ -7,18 +7,27 @@ import java.util.Scanner;
 import ironman.logica.Armadura;
 import ironman.logica.CreadorArmadura;
 
+/** La clase "Consola" permite probar la lógica del programa mediante 
+ * la solicitud de datos en consola, valga la redudancia 
+*/
 public class Consola {
     List<Armadura> armaduras;
     private Scanner sc;
     private int opcion = 0;
     private int cantidad = 0;
     private String tipoArmadura;
-
+/**
+ * Constructor de Consola que inicializa el arreglo de 'armaduras'
+ * y 'sc' para la captura de datos
+ */
     public Consola() {
         armaduras = new ArrayList<>();
         sc = new Scanner(System.in);
     }
-
+/**
+ * Mediante el método "Proceso" se selecciona el tipo de armadura, se piden datos 
+ * y se realizan las respectivas validaciones, es decir, implementación de toda la lógica del programa
+ */
     public void proceso() {
 
         do {
@@ -66,7 +75,12 @@ public class Consola {
         }
         System.out.println("Inventario para " + tipoArmadura + ": " + armaduras.size());
     }
-
+/**
+ * Este método recibe parámetros del tipo y características del elemento
+ * de la armadura
+ * @param tipo
+ * @param caracteristicas 
+ */
     private void mostrarCaracteristicas(String tipo, List<String> caracteristicas) {
         System.out.println("Caracteristicas de " + tipo);
         for (String caracteristica : caracteristicas) {

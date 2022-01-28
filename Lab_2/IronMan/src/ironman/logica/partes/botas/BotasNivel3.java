@@ -2,6 +2,9 @@ package ironman.logica.partes.botas;
 
 
 public class BotasNivel3 extends BotasNivel2 {
+/**
+ * Constructor de Botas Nivel 3
+ */
     public BotasNivel3(){
         super();
         super.obtenerCaracteristicas().add("Incorporcion de Arma lateral");
