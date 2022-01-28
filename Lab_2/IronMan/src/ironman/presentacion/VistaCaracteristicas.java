@@ -16,7 +16,8 @@ import javax.swing.JTextArea;
  * 
  */
 public class VistaCaracteristicas extends javax.swing.JFrame {
-    private String carpetaImagenes = "D:\\Workspace\\UD\\modelos1\\Lab_2\\IronMan\\src\\ironman\\presentacion\\imagenes\\";
+    private final String carpetaImagenes;
+    private final String formato = ".png";
     private int numArmadura;
 
     private Modelo modelo;
@@ -25,6 +26,7 @@ public class VistaCaracteristicas extends javax.swing.JFrame {
      * Creates new form vistaPrincipal
      */
     public VistaCaracteristicas(Modelo modelo) {
+        this.carpetaImagenes = "src\\ironman\\presentacion\\imagenes\\";
         this.modelo = modelo;
         initComponents();
 
@@ -54,10 +56,12 @@ public class VistaCaracteristicas extends javax.swing.JFrame {
         lblNombreTraje = new javax.swing.JLabel();
         lblCantidad = new javax.swing.JLabel();
         jpImgArmadura = new javax.swing.JPanel();
+        lblImgTraje = new javax.swing.JLabel();
         jpElemento = new javax.swing.JPanel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jpImgElemento = new javax.swing.JPanel();
+        lblImgObjeto = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -110,15 +114,25 @@ public class VistaCaracteristicas extends javax.swing.JFrame {
         lblCantidad.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblCantidad.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
 
+        lblImgTraje.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout jpImgArmaduraLayout = new javax.swing.GroupLayout(jpImgArmadura);
         jpImgArmadura.setLayout(jpImgArmaduraLayout);
         jpImgArmaduraLayout.setHorizontalGroup(
             jpImgArmaduraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
             .addGap(0, 0, Short.MAX_VALUE)
         );
         jpImgArmaduraLayout.setVerticalGroup(
             jpImgArmaduraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
+=======
+            .addComponent(lblImgTraje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jpImgArmaduraLayout.setVerticalGroup(
+            jpImgArmaduraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblImgTraje, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
+>>>>>>> 36242e8e6d6417d457a354976206c6a2e7f033ba
         );
 
         javax.swing.GroupLayout jpTrajeLayout = new javax.swing.GroupLayout(jpTraje);
@@ -151,7 +165,11 @@ public class VistaCaracteristicas extends javax.swing.JFrame {
                     .addComponent(lblCantidad, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+<<<<<<< HEAD
                 .addComponent(jpImgArmadura, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+=======
+                .addComponent(jpImgArmadura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+>>>>>>> 36242e8e6d6417d457a354976206c6a2e7f033ba
                 .addContainerGap())
         );
 
@@ -162,15 +180,25 @@ public class VistaCaracteristicas extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Objeto");
 
+        lblImgObjeto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout jpImgElementoLayout = new javax.swing.GroupLayout(jpImgElemento);
         jpImgElemento.setLayout(jpImgElementoLayout);
         jpImgElementoLayout.setHorizontalGroup(
             jpImgElementoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
             .addGap(0, 0, Short.MAX_VALUE)
         );
         jpImgElementoLayout.setVerticalGroup(
             jpImgElementoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 201, Short.MAX_VALUE)
+=======
+            .addComponent(lblImgObjeto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jpImgElementoLayout.setVerticalGroup(
+            jpImgElementoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblImgObjeto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+>>>>>>> 36242e8e6d6417d457a354976206c6a2e7f033ba
         );
 
         javax.swing.GroupLayout jpElementoLayout = new javax.swing.GroupLayout(jpElemento);
@@ -229,12 +257,12 @@ public class VistaCaracteristicas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     public void putTraje() {
-        String rutaImgTraje = carpetaImagenes + obtenerNombreArmadura() + ".jpg";
+        String rutaImgTraje = carpetaImagenes + obtenerNombreArmadura() + formato;
 
         // System.out.println(rutaImgTraje);
-        Image fig = new ImageIcon(rutaImgTraje).getImage();
-
-        getJpImgArmadura().getGraphics().drawImage(fig, 0, 0, fig.getWidth(getJpImgArmadura()),fig.getHeight(getJpImgArmadura()),getJpImgArmadura());
+        ImageIcon fig = new ImageIcon(rutaImgTraje);
+        
+        lblImgTraje.setIcon(fig);
     }
 
     private String obtenerNombreArmadura() {
@@ -253,7 +281,7 @@ public class VistaCaracteristicas extends javax.swing.JFrame {
     }
 
     public void putElemento(int numElemento) {
-        getJpImgElemento().getGraphics().clearRect(0, 0, 10000, 10000);
+        
         String rutaElemento = carpetaImagenes;
         switch (numElemento) {
             case 1:
@@ -269,12 +297,11 @@ public class VistaCaracteristicas extends javax.swing.JFrame {
                 rutaElemento += "Botas";
                 break;
         }
-        rutaElemento += obtenerNombreArmadura() + ".jpg";
-        // System.out.println(rutaElemento);
-        Image fig = new ImageIcon(rutaElemento).getImage();
-        // fig = fig.getScaledInstance(100, 100, 1);
-        getJpImgElemento().getGraphics().drawImage(fig, 0, 0, fig.getWidth(getJpImgElemento()),
-                fig.getHeight(getJpImgElemento()), getJpImgElemento());
+        rutaElemento += obtenerNombreArmadura() + formato;
+        
+        ImageIcon fig = new ImageIcon(rutaElemento);
+        
+        lblImgObjeto.setIcon(fig);
     }
 
     public void agregarLinea(String texto) {
@@ -334,6 +361,8 @@ public class VistaCaracteristicas extends javax.swing.JFrame {
     private javax.swing.JPanel jpTraje;
     private javax.swing.JTextArea jtaCaracteristicas;
     private javax.swing.JLabel lblCantidad;
+    private javax.swing.JLabel lblImgObjeto;
+    private javax.swing.JLabel lblImgTraje;
     private javax.swing.JLabel lblNombreTraje;
     // End of variables declaration//GEN-END:variables
 }

@@ -15,7 +15,7 @@ import javax.swing.JTextArea;
  * 
  * 
  */
-public class VistaCaracteristicas extends javax.swing.JFrame {
+public class VistaNueva extends javax.swing.JFrame {
     private String carpetaImagenes = "D:\\Workspace\\UD\\modelos1\\Lab_2\\IronMan\\src\\ironman\\presentacion\\imagenes\\";
     private int numArmadura;
 
@@ -24,7 +24,7 @@ public class VistaCaracteristicas extends javax.swing.JFrame {
     /**
      * Creates new form vistaPrincipal
      */
-    public VistaCaracteristicas(Modelo modelo) {
+    public VistaNueva(Modelo modelo) {
         this.modelo = modelo;
         initComponents();
 
